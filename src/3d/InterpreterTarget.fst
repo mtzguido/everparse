@@ -733,11 +733,11 @@ let print_binding mname (td:type_decl)
     let typ = td.typ in
     let k = td.kind in
     let root_name = print_ident mname tdn.td_name in
-    let print_binders binders =
+    let print_binders binders : ML string =
         List.map (print_param mname) binders |>
         String.concat " "
     in
-    let print_args binders =
+    let print_args binders : ML string =
         List.map (fun (i, _) -> print_ident mname i) binders |>
         String.concat " "
     in
