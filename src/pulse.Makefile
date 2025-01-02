@@ -28,7 +28,4 @@ export OCAMLPATH
 # MyNamespace, then you can set this variable to *,-MyNamespace
 ALREADY_CACHED := PulseCore,Pulse,$(ALREADY_CACHED)
 
-# FIXME: do we still need separate subdirectories for pledges, classes?
-INCLUDE_PATHS += $(PULSE_LIB) $(PULSE_LIB)/lib $(PULSE_LIB)/lib/class $(PULSE_LIB)/lib/pledge $(PULSE_LIB)/core
-
-FSTAR_OPTIONS += --load_cmxs pulse
+INCLUDE_PATHS += $(PULSE_LIB)
