@@ -2,6 +2,10 @@ ifeq (,$(EVERPARSE_SRC_PATH))
   $(error "EVERPARSE_SRC_PATH must be set to the absolute path of the src/ subdirectory of the EverParse repository")
 endif
 
+ifdef FSTAR_EXE
+FSTAR_HOME := $(abspath $(FSTAR_EXE)/../..)
+endif
+
 # Find fstar.exe and the fstar.lib OCaml package
 ifeq (,$(FSTAR_HOME))
   _check_fstar := $(shell which fstar.exe)
@@ -17,10 +21,12 @@ ifeq ($(OS),Windows_NT)
   FSTAR_HOME := $(shell cygpath -m $(FSTAR_HOME))
 endif
 export FSTAR_HOME
+FSTAR_EXE ?= $(FSTAR_HOME)/bin/fstar.exe
+
 ifeq ($(OS),Windows_NT)
-    OCAMLPATH := $(shell cygpath -m $(FSTAR_HOME)/lib);$(OCAMLPATH)
+    OCAMLPATH := $(shell $(FSTAR_EXE) --locate_ocaml);$(OCAMLPATH)
 else
-    OCAMLPATH := $(FSTAR_HOME)/lib:$(OCAMLPATH)
+    OCAMLPATH := $(shell $(FSTAR_EXE) --locate_ocaml):$(OCAMLPATH)
 endif
 export OCAMLPATH
 _check_fstar_lib_package := $(shell env OCAMLPATH="$(OCAMLPATH)" ocamlfind query fstar.lib)
