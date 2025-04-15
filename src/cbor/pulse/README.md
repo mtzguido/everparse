@@ -9,7 +9,7 @@ representation.
   can be typechecked without the rest of SEParse.
 
 * `raw/`: Pulse implementations of those interfaces, proven correct
-  wrt. the respective function signatures. The `raw/everparse/`
+  wrt. the respective function signatures. The `raw/separse/`
   subdirectory needs LowParse+Pulse to typecheck.
 
 * `det/`: Karamel extraction rules and C and Rust extracted code for

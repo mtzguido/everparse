@@ -17,15 +17,15 @@ spec.do:
 
 spec/raw.do: spec.do
 
-spec/raw/everparse.do: spec/raw.do
+spec/raw/separse.do: spec/raw.do
 
 pulse.do: spec.do
 
 pulse/raw.do: spec/raw.do pulse.do
 
-pulse/raw/everparse.do: pulse/raw.do spec/raw/everparse.do
+pulse/raw/separse.do: pulse/raw.do spec/raw/separse.do
 
-pulse/det/krml.do: pulse/raw/everparse.do
+pulse/det/krml.do: pulse/raw/separse.do
 
 %.do:
 	+$(MAKE) -C $(basename $@)

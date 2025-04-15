@@ -3,25 +3,25 @@ all: cbor cddl cbor-interface
 export FSTAR_EXE := $(realpath opt)/FStar/bin/fstar.exe
 export KRML_HOME := $(realpath opt/karamel)
 export PULSE_HOME := $(realpath opt/pulse/out)
-export EVERPARSE_OPT_PATH := $(realpath opt)
+export SEPARSE_OPT_PATH := $(realpath opt)
 
-include $(EVERPARSE_OPT_PATH)/env.Makefile
+include $(SEPARSE_OPT_PATH)/env.Makefile
 
-EVERPARSE_SRC_PATH = $(realpath src)
+SEPARSE_SRC_PATH = $(realpath src)
 
 ALREADY_CACHED := *,-LowParse,-CBOR,-CDDL,
 
-SRC_DIRS += src/lowparse src/cbor/spec src/cbor/spec/raw src/cbor/spec/raw/everparse src/cddl/spec
+SRC_DIRS += src/lowparse src/cbor/spec src/cbor/spec/raw src/cbor/spec/raw/separse src/cddl/spec
 
 ifeq (,$(NO_PULSE))
-  SRC_DIRS += src/lowparse/pulse src/cbor/pulse src/cbor/pulse/raw src/cbor/pulse/raw/everparse src/cddl/pulse src/cddl/tool
+  SRC_DIRS += src/lowparse/pulse src/cbor/pulse src/cbor/pulse/raw src/cbor/pulse/raw/separse src/cddl/pulse src/cddl/tool
 endif
 
-include $(EVERPARSE_SRC_PATH)/karamel.Makefile
+include $(SEPARSE_SRC_PATH)/karamel.Makefile
 ifeq (,$(NO_PULSE))
-  include $(EVERPARSE_SRC_PATH)/pulse.Makefile
+  include $(SEPARSE_SRC_PATH)/pulse.Makefile
 endif
-include $(EVERPARSE_SRC_PATH)/common.Makefile
+include $(SEPARSE_SRC_PATH)/common.Makefile
 
 lowparse: $(filter-out src/lowparse/pulse/%,$(filter src/lowparse/%,$(ALL_CHECKED_FILES)))
 

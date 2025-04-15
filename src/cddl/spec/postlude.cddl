@@ -48,4 +48,4 @@
                   any = #
 
 ; SEParse CDDL also introduces:
-; `everparse-no-match`, a typename to denote empty types that never match
+; `separse-no-match`, a typename to denote empty types that never match

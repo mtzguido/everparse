@@ -2,7 +2,7 @@ SEPARSE_SRC_PATH = $(realpath ../..)
 SEPARSE_PATH = $(realpath $(SEPARSE_SRC_PATH)/..)
 OUTPUT_DIRECTORY := _output
 INCLUDE_PATHS += $(SEPARSE_SRC_PATH)/cbor/spec $(SEPARSE_SRC_PATH)/cddl/spec $(SEPARSE_SRC_PATH)/cddl/tool $(SEPARSE_PATH)/lib/evercddl/lib $(SEPARSE_PATH)/lib/evercddl/plugin $(SEPARSE_SRC_PATH)/cbor/pulse $(SEPARSE_SRC_PATH)/cddl/pulse $(OUTPUT_DIRECTORY)
-INCLUDE_PATHS += $(SEPARSE_SRC_PATH)/cbor/spec $(SEPARSE_SRC_PATH)/cbor/spec/raw $(SEPARSE_SRC_PATH)/cbor/spec/raw/everparse $(SEPARSE_SRC_PATH)/cbor/pulse/raw $(SEPARSE_SRC_PATH)/cbor/pulse/raw/everparse $(SEPARSE_SRC_PATH)/lowparse $(SEPARSE_SRC_PATH)/lowparse/pulse
+INCLUDE_PATHS += $(SEPARSE_SRC_PATH)/cbor/spec $(SEPARSE_SRC_PATH)/cbor/spec/raw $(SEPARSE_SRC_PATH)/cbor/spec/raw/separse $(SEPARSE_SRC_PATH)/cbor/pulse/raw $(SEPARSE_SRC_PATH)/cbor/pulse/raw/separse $(SEPARSE_SRC_PATH)/lowparse $(SEPARSE_SRC_PATH)/lowparse/pulse
 
 ALREADY_CACHED := *,-CDDLTest,
 FSTAR_OPTIONS += --load_cmxs evercddl_lib --load_cmxs evercddl_plugin

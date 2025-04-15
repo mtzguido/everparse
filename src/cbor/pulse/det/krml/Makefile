@@ -2,7 +2,7 @@ all: extract
 
 SEPARSE_SRC_PATH = $(realpath ../../../..)
 SRC_DIRS += $(SEPARSE_SRC_PATH)/cbor/pulse
-INCLUDE_PATHS += $(SEPARSE_SRC_PATH)/cbor/spec $(SEPARSE_SRC_PATH)/cbor/spec/raw $(SEPARSE_SRC_PATH)/cbor/spec/raw/everparse $(SEPARSE_SRC_PATH)/cbor/pulse/raw $(SEPARSE_SRC_PATH)/cbor/pulse/raw/everparse $(SEPARSE_SRC_PATH)/lowparse $(SEPARSE_SRC_PATH)/lowparse/pulse
+INCLUDE_PATHS += $(SEPARSE_SRC_PATH)/cbor/spec $(SEPARSE_SRC_PATH)/cbor/spec/raw $(SEPARSE_SRC_PATH)/cbor/spec/raw/separse $(SEPARSE_SRC_PATH)/cbor/pulse/raw $(SEPARSE_SRC_PATH)/cbor/pulse/raw/separse $(SEPARSE_SRC_PATH)/lowparse $(SEPARSE_SRC_PATH)/lowparse/pulse
 
 FSTAR_OPTIONS += --warn_error -342
 FSTAR_OPTIONS += --ext extraction_inline_all
@@ -16,7 +16,7 @@ C_DIRECTORY:=$(realpath ../c)/extracted
 RUST_DIRECTORY:=rust-extracted
 
 include $(SEPARSE_SRC_PATH)/pulse.Makefile
-include $(SEPARSE_SRC_PATH)/everparse.Makefile
+include $(SEPARSE_SRC_PATH)/separse.Makefile
 include $(SEPARSE_SRC_PATH)/common.Makefile
 
 $(C_DIRECTORY)/CBORDet.c: $(filter-out %CBOR_Pulse_API_Det_Rust.krml,$(ALL_KRML_FILES))

@@ -5,7 +5,7 @@ INCLUDE_PATHS += $(realpath ..)
 
 include $(SEPARSE_SRC_PATH)/pulse.Makefile
 include $(SEPARSE_SRC_PATH)/karamel.Makefile
-include $(SEPARSE_SRC_PATH)/everparse.Makefile
+include $(SEPARSE_SRC_PATH)/separse.Makefile
 
 ALREADY_CACHED := *,-LowParse.Pulse,
 OUTPUT_DIRECTORY := _output

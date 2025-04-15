@@ -244,7 +244,7 @@ let ctlop =
   debug "ctlop"
     (concat dot (fun _ -> concat id (fun s -> match s with
     | (Regular, "size") -> ret (fun t1 t2 -> TSize (t1, t2))
-    | (Regular, "everparse-det-cbor") -> ret (fun t1 t2 -> TDetCbor (t1, t2))
+    | (Regular, "separse-det-cbor") -> ret (fun t1 t2 -> TDetCbor (t1, t2))
     (* TODO: (non-injective) cbor *)
     | _ -> fail
     )))

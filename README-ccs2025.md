@@ -7,17 +7,17 @@ Section 2.2:
 
 Section 3.2:
 - the CBOR raw data type is defined in `src/cbor/spec/raw/CBOR.Spec.Raw.Base.fst`
-- the CBOR raw data parser and serializer specifications are defined in `src/cbor/spec/raw/everparse/CBOR.Spec.Raw.EverParse.fst`
-- the CBOR raw data validator, jumper implementation, accessors, and the CBOR header value reader and writer, as well as the validator and jumper for the deterministic format, are defined in `src/cbor/pulse/raw/everparse/CBOR.Pulse.Raw.EverParse.Format.fst`
+- the CBOR raw data parser and serializer specifications are defined in `src/cbor/spec/raw/separse/CBOR.Spec.Raw.EverParse.fst`
+- the CBOR raw data validator, jumper implementation, accessors, and the CBOR header value reader and writer, as well as the validator and jumper for the deterministic format, are defined in `src/cbor/pulse/raw/separse/CBOR.Pulse.Raw.EverParse.Format.fst`
 - the low-level datatype for CBOR raw data is defined in `src/cbor/pulse/raw/CBOR.Pulse.Raw.Type.fst`
 - the separation logic relation for CBOR raw data is defined in `src/cbor/pulse/raw/CBOR.Pulse.Raw.Match.fst`
-- the CBOR raw data serializer implementations are defined in `src/cbor/pulse/raw/everparse/CBOR.Pulse.Raw.Format.Serialize.fst`
+- the CBOR raw data serializer implementations are defined in `src/cbor/pulse/raw/separse/CBOR.Pulse.Raw.Format.Serialize.fst`
 
 Section 3.3:
 - The validity and equivalence predicates are defined in `src/cbor/spec/raw/CBOR.Spec.Raw.Valid.fst*`
 - The deterministic encoding is defined in `src/cbor/spec/raw/CBOR.Spec.Raw.Optimal.fst`
 - Theorem 3.1 is `unpack_pack` and `pack_unpack` in `src/cbor/spec/raw/CBOR.Spec.Raw.DataModel.fst`.
-- Theorem 3.2 is `cbor_compare_correct` in `src/cbor/spec/raw/everparse/CBOR.Spec.Raw.Format.fst`
+- Theorem 3.2 is `cbor_compare_correct` in `src/cbor/spec/raw/separse/CBOR.Spec.Raw.Format.fst`
 - The verified defensive C API specifications are defined at `src/cbor/pulse/CBOR.Pulse.API.Base.fst` and `src/cbor/pulse/CBOR.Pulse.API.Det.C.fsti`, and similarly for Rust.
 - The code extracts to C at `src/cbor/pulse/det/c`, and to Rust at `src/cbor/pulse/det/rust`
 
