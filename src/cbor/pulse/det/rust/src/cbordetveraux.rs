@@ -2557,9 +2557,7 @@ __proj__Mkdtuple2__item___1__CBOR_Spec_Raw_SEParse_initial_byte_t_CBOR_Spec_Raw_
     initial_byte_t
 { pair.fst }
 
-fn dfst__CBOR_Spec_Raw_SEParse_initial_byte_t_CBOR_Spec_Raw_SEParse_long_argument(
-    t: header
-) ->
+fn dfst__CBOR_Spec_Raw_SEParse_initial_byte_t_CBOR_Spec_Raw_SEParse_long_argument(t: header) ->
     initial_byte_t
 {
     __proj__Mkdtuple2__item___1__CBOR_Spec_Raw_SEParse_initial_byte_t_CBOR_Spec_Raw_SEParse_long_argument(
@@ -2574,9 +2572,7 @@ __proj__Mkdtuple2__item___2__CBOR_Spec_Raw_SEParse_initial_byte_t_CBOR_Spec_Raw_
     long_argument
 { pair.snd }
 
-fn dsnd__CBOR_Spec_Raw_SEParse_initial_byte_t_CBOR_Spec_Raw_SEParse_long_argument(
-    t: header
-) ->
+fn dsnd__CBOR_Spec_Raw_SEParse_initial_byte_t_CBOR_Spec_Raw_SEParse_long_argument(t: header) ->
     long_argument
 {
     __proj__Mkdtuple2__item___2__CBOR_Spec_Raw_SEParse_initial_byte_t_CBOR_Spec_Raw_SEParse_long_argument(

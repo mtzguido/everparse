@@ -278,8 +278,7 @@ COSE_Format_uu___is_Mkevercddl_separsenomatch_pretty0(
   return true;
 }
 
-static COSE_Format_evercddl_separsenomatch_pretty
-evercddl_separsenomatch_pretty_right(void)
+static COSE_Format_evercddl_separsenomatch_pretty evercddl_separsenomatch_pretty_right(void)
 {
   return COSE_Format_Mkevercddl_separsenomatch_pretty0;
 }
