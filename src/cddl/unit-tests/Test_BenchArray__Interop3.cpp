@@ -168,9 +168,9 @@ int main()
         printf("Parse failed\n");
         exit(1);
     }
-    printf(" >>> EVERCDDL PARSING BANDWIDTH: %f MB/s\n", len / f2 / 1e6);
+    printf(" >>> VERCDL PARSING BANDWIDTH: %f MB/s\n", len / f2 / 1e6);
 
-    printf(" >>> EVERCDDL COMBINED BANDWIDTH: %f MB/s\n", len / (f + f2) / 1e6);
+    printf(" >>> VERCDL COMBINED BANDWIDTH: %f MB/s\n", len / (f + f2) / 1e6);
 
     rc = TIME(Valid(buf, len), &f);
     if (!rc) {

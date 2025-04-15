@@ -24,12 +24,12 @@ let list_is_empty = function
 
 let _ =
   let argspec = ref [
-      ("--rust", Arg.Unit (fun _ -> lang := "Rust"), "Use the Rust EverCBOR library");
+      ("--rust", Arg.Unit (fun _ -> lang := "Rust"), "Use the Rust VERCOR library");
       ("--mname", Arg.String (fun m -> mname := m), "Set the module name");
       ("--odir", Arg.String (fun d -> odir := d), "Set the output directory (default .)");
     ]
   in
-  let usagemsg = "EverCDDL: Produces a F* file to generate formally verified parsers and serializers from CDDL specifications.\nUsage: "^Sys.argv.(0) ^" [options] file1 [file2 ...]" in
+  let usagemsg = "VERCDL: Produces a F* file to generate formally verified parsers and serializers from CDDL specifications.\nUsage: "^Sys.argv.(0) ^" [options] file1 [file2 ...]" in
   let help () =
     Arg.usage !argspec usagemsg;
     exit 0

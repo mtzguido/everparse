@@ -53,7 +53,7 @@ void bench_vercdl () {
         }
     }), &f);
 
-    printf(" >>> EVERCDDL SERIALIZATION OF RECORD TAKES: %f us\n", f * 1e6 / LAPS);
+    printf(" >>> VERCDL SERIALIZATION OF RECORD TAKES: %f us\n", f * 1e6 / LAPS);
 
     FStar_Pervasives_Native_option___BenchFlat_vercdl_record_pretty___Pulse_Lib_Slice_slice_uint8_t_
       rc;
@@ -70,7 +70,7 @@ void bench_vercdl () {
  
     r2 = rc.v.fst;
 
-    printf(" >>> EVERCDDL PARSING OF RECORD TAKES: %f us\n", f * 1e6 / LAPS);
+    printf(" >>> VERCDL PARSING OF RECORD TAKES: %f us\n", f * 1e6 / LAPS);
     assert (r.f1 == r2.f1);
     assert (r.f2 == r2.f2);
     assert (r.f3 == r2.f3);

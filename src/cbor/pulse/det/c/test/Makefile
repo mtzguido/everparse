@@ -2,8 +2,8 @@ all: CBORDetTest
 
 SEPARSE_SRC_PATH = $(realpath ../../../../..)
 
-#SEPARSE_LIB_PATH = $(realpath $(SEPARSE_SRC_PATH)/..)/lib/evercbor
-#SEPARSE_INCLUDE_PATH = $(realpath $(SEPARSE_SRC_PATH)/..)/include/evercbor
+#SEPARSE_LIB_PATH = $(realpath $(SEPARSE_SRC_PATH)/..)/lib/vercor
+#SEPARSE_INCLUDE_PATH = $(realpath $(SEPARSE_SRC_PATH)/..)/include/vercor
 SEPARSE_LIB_PATH = $(realpath ..)
 SEPARSE_INCLUDE_PATH = $(realpath ..)
 
@@ -26,6 +26,6 @@ $(OBJ_FILES): %.o: %.c
 # CBORDetTest.c: gen/GenCBORDetTest.ml
 # 	./gen/CBORDetTest.sh
 
-#CBORDetTest.exe: CBORDetTest.o $(SEPARSE_LIB_PATH)/evercbor.a
+#CBORDetTest.exe: CBORDetTest.o $(SEPARSE_LIB_PATH)/vercor.a
 CBORDetTest.exe: $(OBJ_FILES) $(SEPARSE_LIB_PATH)/CBORDet.o
 	$(CC) -o CBORDetTest.exe $^

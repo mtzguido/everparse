@@ -36,7 +36,7 @@ bool lookup1(BenchMap_vercdl_map_pretty m, uint64_t key, uint64_t *val) {
   while (!BenchMap_is_empty_iterate_map_aux_env3_type_1_and_aux_env3_type_1(it)) {
     K___BenchMap_aux_env3_type_1_pretty_BenchMap_aux_env3_type_1_pretty k =
         BenchMap_next_iterate_map_aux_env3_type_1_and_aux_env3_type_1(&it);
-    // printf("EVERCDDL read key %llu\n", k.fst);
+    // printf("VERCDL read key %llu\n", k.fst);
     if (k.fst == key) {
       if (val) {
           *val = k.snd;
@@ -86,7 +86,7 @@ bool qcbor_lookup1(uint8_t *buf, size_t len, uint64_t key, uint64_t *val) {
     return false;
 }
 
-bool evercbor_lookup1(uint8_t *buf, size_t len, uint64_t key, uint64_t *val) {
+bool vercor_lookup1(uint8_t *buf, size_t len, uint64_t key, uint64_t *val) {
   cbor_det_t m = cbor_det_parse(buf, len);
   cbor_det_t k = cbor_det_mk_int64(0, key);
   cbor_det_t cval;
@@ -219,7 +219,7 @@ int main()
     FStar_Pervasives_Native_option___BenchMap_vercdl_map_pretty___Pulse_Lib_Slice_slice_uint8_t_
       m_opt = TIME(BenchMap_validate_and_parse_map(slice), &f);
 
-    printf(" >>> EVERCDDL VALIDATION TOOK %f us\n", f * 1e6);
+    printf(" >>> VERCDL VALIDATION TOOK %f us\n", f * 1e6);
 
 
     assert (m_opt.tag == FStar_Pervasives_Native_Some);
@@ -245,7 +245,7 @@ int main()
     }), &f);
     printf(" NFOUND = %d\n", nfound);
 
-    printf(" >>> EVERCDDL LOOKUP: %f us\n", f * 1e6/ K / LAPS);
+    printf(" >>> VERCDL LOOKUP: %f us\n", f * 1e6/ K / LAPS);
 
     ncheck = 0;
     TIME_void(
@@ -260,7 +260,7 @@ int main()
     }), &f);
     assert (ncheck == nfound);
 
-    printf(" >>> EVERCDDL LOOKUP (NO SHORT): %f us\n", f * 1e6 / K / LAPS);
+    printf(" >>> VERCDL LOOKUP (NO SHORT): %f us\n", f * 1e6 / K / LAPS);
 
     ncheck = 0;
     TIME_void(
@@ -269,11 +269,11 @@ int main()
             for (int i = 0; i < K; i++) {
                 uint64_t key = keys[i];
                 uint64_t val;
-                ncheck += evercbor_lookup1(buf, len, key, &val);
+                ncheck += vercor_lookup1(buf, len, key, &val);
             }
         }
     }), &f);
-    printf (" >>> EVERCBOR LOOKUP: %f us\n", f * 1e6 / K / LAPS);
+    printf (" >>> VERCOR LOOKUP: %f us\n", f * 1e6 / K / LAPS);
     assert (ncheck == nfound);
 
     ncheck = 0;

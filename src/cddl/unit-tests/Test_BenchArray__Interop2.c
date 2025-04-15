@@ -113,7 +113,7 @@ int main()
     CDDL_Pulse_Parse_ArrayGroup_array_iterator_t__CBOR_Pulse_API_Det_Type_cbor_det_array_iterator_t_BenchArray_aux_env4_type_1_pretty
       it = m.case_Mkvercdl_map_pretty1;
 
-    printf(" >>> EVERCDDL VALIDATION BANDWIDTH: %f MB/s\n", Encoded.len / f / 1e6);
+    printf(" >>> VERCDL VALIDATION BANDWIDTH: %f MB/s\n", Encoded.len / f / 1e6);
 
     bool rc = TIME(parse_vercdl(m), &f2);
     if (!rc) {
@@ -121,8 +121,8 @@ int main()
         exit(1);
     }
 
-    printf(" >>> EVERCDDL PARSING BANDWIDTH: %f MB/s\n", Encoded.len / f2 / 1e6);
-    printf(" >>> EVERCDDL COMBINED BANDWIDTH: %f MB/s\n", Encoded.len / (f + f2) / 1e6);
+    printf(" >>> VERCDL PARSING BANDWIDTH: %f MB/s\n", Encoded.len / f2 / 1e6);
+    printf(" >>> VERCDL COMBINED BANDWIDTH: %f MB/s\n", Encoded.len / (f + f2) / 1e6);
 
     printf("Done\n");
 
