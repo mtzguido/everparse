@@ -1,12 +1,12 @@
 module ArithParse.Impl
 #lang-pulse
 include ArithParse.Spec
-open LowParse.Spec.Base
-open LowParse.Pulse.Base
-open LowParse.Pulse.Combinators
-open LowParse.Pulse.Int
-open LowParse.Pulse.VCList
-open LowParse.Pulse.Recursive
+open LParse.Spec.Base
+open LParse.Pulse.Base
+open LParse.Pulse.Combinators
+open LParse.Pulse.Int
+open LParse.Pulse.VCList
+open LParse.Pulse.Recursive
 open Pulse.Lib.Pervasives
 module S = Pulse.Lib.Slice
 
@@ -359,7 +359,7 @@ let write_expr_base_payload'
     )
     (get_header_type xh1 = 255uy)
     (fun _ ->
-      [@@inline_let] let _ = LowParse.Spec.VCList.parse_nlist_nil_as_synth_eq parse_expr in
+      [@@inline_let] let _ = LParse.Spec.VCList.parse_nlist_nil_as_synth_eq parse_expr in
       l2r_writer_ext
         (l2r_write_synth_recip
           _
@@ -376,7 +376,7 @@ let write_expr_base_payload'
       )
       (get_header_type xh1 = 254uy)
       (fun _ ->
-        [@@inline_let] let _ = LowParse.Spec.VCList.parse_nlist_pair_as_synth_eq parse_expr in
+        [@@inline_let] let _ = LParse.Spec.VCList.parse_nlist_pair_as_synth_eq parse_expr in
         l2r_writer_ext
           (l2r_write_synth_recip
             (vmatch_dep_proj2 (vmatch_synth rel_base synth_expr) xh1)
@@ -615,7 +615,7 @@ let write_expr_rec_not_base_payload_minus
       )
       (spec_serialize_recursive_payload serialize_expr_param xh1)
 =
-        [@@inline_let] let _ = LowParse.Spec.VCList.parse_nlist_pair_as_synth_eq parse_expr in
+        [@@inline_let] let _ = LParse.Spec.VCList.parse_nlist_pair_as_synth_eq parse_expr in
         l2r_writer_ext
           (l2r_write_synth_recip
             _
@@ -939,7 +939,7 @@ let zero_copy_parse_payload
       zero_copy_parse_ifthenelse
         (get_header_type xh = 254uy)
         (fun _ ->
-          [@@inline_let] let _ = LowParse.Spec.VCList.parse_nlist_pair_as_synth_eq parse_expr in
+          [@@inline_let] let _ = LParse.Spec.VCList.parse_nlist_pair_as_synth_eq parse_expr in
           zero_copy_parse_ext
             (zero_copy_parse_lens
               (zero_copy_parse_synth

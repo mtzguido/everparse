@@ -1,7 +1,7 @@
 all: extract
 
 SEPARSE_SRC_PATH = $(realpath ../../src)
-INCLUDE_PATHS += $(SEPARSE_SRC_PATH)/lowparse/pulse
+INCLUDE_PATHS += $(SEPARSE_SRC_PATH)/lparse/pulse
 ALREADY_CACHED := *,-ArithParse,
 
 OUTPUT_DIRECTORY := _output

@@ -1,12 +1,12 @@
 module CBOR.Spec.Raw.Format.MapPair
 friend CBOR.Spec.API.Type
 friend CBOR.Spec.Raw.DataModel
-open LowParse.Spec.Combinators
-open LowParse.Spec.VCList
+open LParse.Spec.Combinators
+open LParse.Spec.VCList
 open CBOR.Spec.Raw.SEParse
 open CBOR.Spec.Raw.Format
 open CBOR.Spec.Util
-open LowParse.Spec.SeqBytes
+open LParse.Spec.SeqBytes
 
 module RF = CBOR.Spec.Raw.Format
 module R = CBOR.Spec.Raw.Sort

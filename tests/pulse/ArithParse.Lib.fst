@@ -1,5 +1,5 @@
 module ArithParse.Lib
-include LowParse.WellFounded
+include LParse.WellFounded
 
 let rec list_sum (#t: Type) (f: t -> nat) (l: list t) : Tot nat =
   match l with

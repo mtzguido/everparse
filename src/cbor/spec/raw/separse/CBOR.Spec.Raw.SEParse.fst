@@ -1,10 +1,10 @@
 module CBOR.Spec.Raw.SEParse
 include CBOR.Spec.Raw.Base
 open CBOR.Spec.Raw.Valid
-open LowParse.Spec
-open LowParse.Spec.BitSum
-open LowParse.Spec.Recursive
-open LowParse.Spec.SeqBytes
+open LParse.Spec
+open LParse.Spec.BitSum
+open LParse.Spec.Recursive
+open LParse.Spec.SeqBytes
 open CBOR.Spec.Raw.SEParse.Assoc
 open CBOR.Spec.Util
 
@@ -1101,7 +1101,7 @@ let serialize_leaf : serializer parse_leaf =
 (* Construction of the serializer, by "step indexing" over the "level"
    (in fact the depth) of the raw data item. *)
 
-open LowParse.WellFounded
+open LParse.WellFounded
 
 let rec level
   (d: raw_data_item)
@@ -1464,7 +1464,7 @@ let serialized_lex_order
   (s: serializer p)
   (x1 x2: t)
 : GTot bool
-= LowParse.Spec.SeqBytes.bytes_lex_order (s x1) (s x2)
+= LParse.Spec.SeqBytes.bytes_lex_order (s x1) (s x2)
 
 let tot_serialized_lex_order
   (#k: parser_kind)
@@ -1473,7 +1473,7 @@ let tot_serialized_lex_order
   (s: tot_serializer p)
   (x1 x2: t)
 : Tot bool
-= LowParse.Spec.SeqBytes.bytes_lex_order (s x1) (s x2)
+= LParse.Spec.SeqBytes.bytes_lex_order (s x1) (s x2)
 
 let deterministically_encoded_cbor_map_key_order
   (k1 k2: raw_data_item)
@@ -1485,21 +1485,21 @@ let deterministically_encoded_cbor_map_key_order_irrefl
 : Lemma
   (requires (Ghost.reveal deterministically_encoded_cbor_map_key_order x y))
   (ensures (~ (x == y)))
-= LowParse.Spec.SeqBytes.bytes_lex_order_irrefl (serialize_raw_data_item x) (serialize_raw_data_item y)
+= LParse.Spec.SeqBytes.bytes_lex_order_irrefl (serialize_raw_data_item x) (serialize_raw_data_item y)
 
 let deterministically_encoded_cbor_map_key_order_trans
   (x y z: raw_data_item)
 : Lemma
   (requires (Ghost.reveal deterministically_encoded_cbor_map_key_order x y /\ Ghost.reveal deterministically_encoded_cbor_map_key_order y z))
   (ensures (Ghost.reveal deterministically_encoded_cbor_map_key_order x z))
-= LowParse.Spec.SeqBytes.bytes_lex_order_trans (serialize_raw_data_item x) (serialize_raw_data_item y) (serialize_raw_data_item z)
+= LParse.Spec.SeqBytes.bytes_lex_order_trans (serialize_raw_data_item x) (serialize_raw_data_item y) (serialize_raw_data_item z)
 
 let deterministically_encoded_cbor_map_key_order_total
   (x y: raw_data_item)
 : Lemma
   (ensures (x == y \/ Ghost.reveal deterministically_encoded_cbor_map_key_order x y \/ Ghost.reveal deterministically_encoded_cbor_map_key_order y x))
 = Classical.move_requires (serializer_injective #parse_raw_data_item_kind parse_raw_data_item serialize_raw_data_item x) y;
-  LowParse.Spec.SeqBytes.bytes_lex_order_total (serialize_raw_data_item x) (serialize_raw_data_item y)
+  LParse.Spec.SeqBytes.bytes_lex_order_total (serialize_raw_data_item x) (serialize_raw_data_item y)
 
 let deterministically_encoded_cbor_map_key_order_assoc_ext :
   (m1: list (raw_data_item & raw_data_item)) ->
@@ -1617,7 +1617,7 @@ let tot_serialized_lex_compare
   (s: tot_serializer p)
   (x1 x2: t)
 : Tot int
-= LowParse.Spec.SeqBytes.bytes_lex_compare (s x1) (s x2)
+= LParse.Spec.SeqBytes.bytes_lex_compare (s x1) (s x2)
 
 let serialized_lex_compare
   (#k: parser_kind)
@@ -1626,7 +1626,7 @@ let serialized_lex_compare
   (s: serializer p)
   (x1 x2: t)
 : GTot int
-= LowParse.Spec.SeqBytes.bytes_lex_compare (s x1) (s x2)
+= LParse.Spec.SeqBytes.bytes_lex_compare (s x1) (s x2)
 
 let tot_serialized_lex_compare_eq_ghost
   (#k: parser_kind)
@@ -1960,7 +1960,7 @@ let serialized_lex_compare_simple_value
     assert (b1 == mk_initial_byte cbor_major_type_simple_value additional_info_long_argument_8_bits);
     let LongArgumentSimpleValue _ x1' = l1 in
     assert (x1 == x1');
-    let p1' : tot_parser parse_long_argument_kind (long_argument b1) = LowParse.Spec.Base.tot_weaken parse_long_argument_kind (tot_parse_synth (tot_parse_filter tot_parse_u8 simple_value_long_argument_wf) (LongArgumentSimpleValue #b1 ())) in
+    let p1' : tot_parser parse_long_argument_kind (long_argument b1) = LParse.Spec.Base.tot_weaken parse_long_argument_kind (tot_parse_synth (tot_parse_filter tot_parse_u8 simple_value_long_argument_wf) (LongArgumentSimpleValue #b1 ())) in
     assert (tot_parse_long_argument b1 == p1');
     let s1_pre = tot_serialize_synth #_ #_ #(long_argument b1) _ (LongArgumentSimpleValue #b1 ()) (tot_serialize_filter tot_serialize_u8 simple_value_long_argument_wf) LongArgumentSimpleValue?.v () in
     let s1' : tot_serializer p1' = tot_serialize_weaken parse_long_argument_kind s1_pre in
@@ -1976,7 +1976,7 @@ let serialized_lex_compare_simple_value
     assert (b2 == mk_initial_byte cbor_major_type_simple_value additional_info_long_argument_8_bits);
     let LongArgumentSimpleValue _ x2' = l2 in
     assert (x2 == x2');
-    let p2' : tot_parser parse_long_argument_kind (long_argument b2) = LowParse.Spec.Base.tot_weaken parse_long_argument_kind (tot_parse_synth (tot_parse_filter tot_parse_u8 simple_value_long_argument_wf) (LongArgumentSimpleValue #b2 ())) in
+    let p2' : tot_parser parse_long_argument_kind (long_argument b2) = LParse.Spec.Base.tot_weaken parse_long_argument_kind (tot_parse_synth (tot_parse_filter tot_parse_u8 simple_value_long_argument_wf) (LongArgumentSimpleValue #b2 ())) in
     assert (tot_parse_long_argument b2 == p2');
     let s2_pre = tot_serialize_synth #_ #_ #(long_argument b2) _ (LongArgumentSimpleValue #b2 ()) (tot_serialize_filter tot_serialize_u8 simple_value_long_argument_wf) LongArgumentSimpleValue?.v () in
     let s2' : tot_serializer p2' = tot_serialize_weaken parse_long_argument_kind s2_pre in
@@ -2061,13 +2061,13 @@ let big_endian_lex_compare'
   (
     let open FStar.Mul in
     (x < pow2 (8 * n) /\ y < pow2 (8 * n)) ==>
-    (bytes_lex_compare (LowParse.Endianness.n_to_be n x) (LowParse.Endianness.n_to_be n y) == int_compare x y)
+    (bytes_lex_compare (LParse.Endianness.n_to_be n x) (LParse.Endianness.n_to_be n y) == int_compare x y)
   )
 = if x < pow2 (let open FStar.Mul in 8 * n) && y < pow2 (let open FStar.Mul in 8 * n)
   then begin
-    bytes_lex_compare_oppose (LowParse.Endianness.n_to_be n x) (LowParse.Endianness.n_to_be n y);
-    LowParse.Spec.Endianness.big_endian_lex_compare n byte_compare (fun _ _ -> ()) (fun _ _ -> ()) x y;
-    LowParse.Spec.Endianness.big_endian_lex_compare n byte_compare (fun _ _ -> ()) (fun _ _ -> ()) y x
+    bytes_lex_compare_oppose (LParse.Endianness.n_to_be n x) (LParse.Endianness.n_to_be n y);
+    LParse.Spec.Endianness.big_endian_lex_compare n byte_compare (fun _ _ -> ()) (fun _ _ -> ()) x y;
+    LParse.Spec.Endianness.big_endian_lex_compare n byte_compare (fun _ _ -> ()) (fun _ _ -> ()) y x
   end
   else ()
 
@@ -2107,7 +2107,7 @@ let lex_compare_with_header_uint
     get_uint64_as_initial_byte ty1 x1 == get_uint64_as_initial_byte ty2 x2 /\
     dfst h1 == b1 /\
     parse_long_argument_kind `is_weaker_than` k /\
-    tot_parse_long_argument b1 == LowParse.Spec.Base.tot_weaken parse_long_argument_kind (tot_parse_synth p f)
+    tot_parse_long_argument b1 == LParse.Spec.Base.tot_weaken parse_long_argument_kind (tot_parse_synth p f)
   ))
   (ensures (
     ty1 == ty2 /\
@@ -2119,7 +2119,7 @@ let lex_compare_with_header_uint
   uv_spec x2;
   let (| _, l1 |) = raw_uint64_as_argument ty1 x1 in
   let (| _, l2 |) = raw_uint64_as_argument ty2 x2 in
-  let p1' : tot_parser parse_long_argument_kind (long_argument b1) = LowParse.Spec.Base.tot_weaken parse_long_argument_kind (tot_parse_synth (p) f) in
+  let p1' : tot_parser parse_long_argument_kind (long_argument b1) = LParse.Spec.Base.tot_weaken parse_long_argument_kind (tot_parse_synth (p) f) in
   assert (tot_parse_long_argument b1 == p1');
   let s1_pre = tot_serialize_synth #_ #_ #(long_argument b1) _ f (s) g () in
   let s1' : tot_serializer p1' = tot_serialize_weaken parse_long_argument_kind s1_pre in
@@ -2170,7 +2170,7 @@ let lex_compare_with_header_correct
   begin
     lex_compare_with_header_long_argument ty1 x1 ty2 x2;
     let (| _, l2 |) = raw_uint64_as_argument ty2 x2 in
-    let p1' : tot_parser parse_long_argument_kind (long_argument b1) = LowParse.Spec.Base.tot_weaken parse_long_argument_kind (tot_parse_synth tot_parse_empty (LongArgumentOther #b1 ())) in
+    let p1' : tot_parser parse_long_argument_kind (long_argument b1) = LParse.Spec.Base.tot_weaken parse_long_argument_kind (tot_parse_synth tot_parse_empty (LongArgumentOther #b1 ())) in
     assert (tot_parse_long_argument b1 == p1');
     let s1_pre = tot_serialize_synth #_ #_ #(long_argument b1) _ (LongArgumentOther #b1 ()) tot_serialize_empty LongArgumentOther?.v () in
     let s1' : tot_serializer p1' = tot_serialize_weaken parse_long_argument_kind s1_pre in

@@ -1,8 +1,8 @@
 module CBOR.Spec.Raw.SEParse.Assoc
 open CBOR.Spec.Raw.Valid
-include LowParse.Spec.Combinators
-include LowParse.Spec.List
-include LowParse.Spec.Sorted
+include LParse.Spec.Combinators
+include LParse.Spec.List
+include LParse.Spec.Sorted
 
 (* Association lists *)
 

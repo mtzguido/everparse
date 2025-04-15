@@ -1,7 +1,7 @@
 module CBOR.Spec.Raw.Format
 module F = CBOR.Spec.Raw.SEParse
 module M = CBOR.Spec.Raw.Map
-module LP = LowParse.Spec.Combinators
+module LP = LParse.Spec.Combinators
 
 let serialize_cbor c = F.tot_serialize_raw_data_item c
 
@@ -53,7 +53,7 @@ let list_sorted_map_entry_order_deterministically_encoded_cbor_map_key_order_no_
 let rec bytes_lex_compare_correct
   (s1 s2: Seq.seq U8.t)
 : Lemma
-  (ensures (bytes_lex_compare s1 s2 == LowParse.Spec.SeqBytes.bytes_lex_compare s1 s2))
+  (ensures (bytes_lex_compare s1 s2 == LParse.Spec.SeqBytes.bytes_lex_compare s1 s2))
   (decreases (Seq.length s1))
   [SMTPat (bytes_lex_compare s1 s2)]
 = if Seq.length s1 = 0 || Seq.length s2 = 0
@@ -66,8 +66,8 @@ let rec bytes_lex_compare_correct
 
 let bytes_lex_compare_equal
   x1 x2
-= LowParse.Spec.Sorted.lex_compare_equal
-    LowParse.Spec.SeqBytes.byte_compare
+= LParse.Spec.Sorted.lex_compare_equal
+    LParse.Spec.SeqBytes.byte_compare
     (fun _ _ -> ())
     (Seq.seq_to_list x1)
     (Seq.seq_to_list x2);
@@ -87,7 +87,7 @@ let rec cbor_compare_correct'
   (ensures (cbor_compare x1 x2 == bytes_lex_compare (serialize_cbor x1) (serialize_cbor x2)))
   (decreases x1)
 = let ty1 = get_major_type x1 in
-  if LowParse.Spec.SeqBytes.byte_compare (get_major_type x1) (get_major_type x2) <> 0
+  if LParse.Spec.SeqBytes.byte_compare (get_major_type x1) (get_major_type x2) <> 0
   then F.serialized_lex_compare_major_type_intro x1 x2
   else if ty1 = cbor_major_type_uint64 || ty1 = cbor_major_type_neg_int64
   then F.serialized_lex_compare_int64 ty1 (Int64?.v x1) (Int64?.v x2)
@@ -118,7 +118,7 @@ and cbor_compare_array_correct
   (x1 x2: list raw_data_item)
 : Lemma
   (requires (List.Tot.length x1 == List.Tot.length x2))
-  (ensures (cbor_compare_array x1 x2 == LowParse.Spec.Sorted.lex_compare (F.tot_serialized_lex_compare F.tot_serialize_raw_data_item) x1 x2))
+  (ensures (cbor_compare_array x1 x2 == LParse.Spec.Sorted.lex_compare (F.tot_serialized_lex_compare F.tot_serialize_raw_data_item) x1 x2))
   (decreases x1)
 = match x1, x2 with
   | a1 :: q1, a2 :: q2 ->
@@ -130,7 +130,7 @@ and cbor_compare_map_correct
   (x1 x2: list (raw_data_item & raw_data_item))
 : Lemma
   (requires (List.Tot.length x1 == List.Tot.length x2))
-  (ensures (cbor_compare_map x1 x2 == LowParse.Spec.Sorted.lex_compare (F.tot_serialized_lex_compare (LowParse.Spec.Combinators.tot_serialize_nondep_then F.tot_serialize_raw_data_item F.tot_serialize_raw_data_item)) x1 x2))
+  (ensures (cbor_compare_map x1 x2 == LParse.Spec.Sorted.lex_compare (F.tot_serialized_lex_compare (LParse.Spec.Combinators.tot_serialize_nondep_then F.tot_serialize_raw_data_item F.tot_serialize_raw_data_item)) x1 x2))
   (decreases x1)
 = match x1, x2 with
   | a1 :: q1, a2 :: q2 ->
@@ -163,7 +163,7 @@ let serialize_cbor_tag_correct tag payload =
   let v1' = F.synth_raw_data_item_recip v1 in
   LP.serialize_dtuple2_eq F.serialize_header F.serialize_content v1'
 
-module LPL = LowParse.Spec.VCList
+module LPL = LParse.Spec.VCList
 
 let serialize_cbor_list l =
   LPL.tot_serialize_nlist (List.Tot.length l) F.tot_serialize_raw_data_item l
@@ -191,7 +191,7 @@ let serialize_array_eq
     v1;
   let v1' = F.synth_raw_data_item_recip v1 in
   LP.serialize_dtuple2_eq F.serialize_header F.serialize_content v1';
-  LowParse.Spec.VCList.tot_serialize_nlist_serialize_nlist (List.Tot.length x1) F.tot_serialize_raw_data_item x1
+  LParse.Spec.VCList.tot_serialize_nlist_serialize_nlist (List.Tot.length x1) F.tot_serialize_raw_data_item x1
 
 let serialize_cbor_array_length_gt_list len l =
   serialize_array_eq len l;
@@ -285,8 +285,8 @@ let parse_nlist_ext'
   (sq: squash (forall x . LP.parse p x == LP.parse p' x))
   (b: LP.bytes)
 : Lemma
-  (ensures (LP.parse (LowParse.Spec.VCList.parse_nlist n p) b == LP.parse (LowParse.Spec.VCList.parse_nlist n p') b))
-= LowParse.Spec.VCList.parse_nlist_ext n p p' b (fun x -> ())
+  (ensures (LP.parse (LParse.Spec.VCList.parse_nlist n p) b == LP.parse (LParse.Spec.VCList.parse_nlist n p') b))
+= LParse.Spec.VCList.parse_nlist_ext n p p' b (fun x -> ())
 
 #push-options "--z3rlimit 32 --split_queries always"
 
@@ -311,15 +311,15 @@ let serialize_map_eq
   let v1' = F.synth_raw_data_item_recip v1 in
   LP.serialize_dtuple2_eq F.serialize_header F.serialize_content v1';
   assert (serialize_cbor (Map len1 x1) == F.serialize_header (F.raw_uint64_as_argument cbor_major_type_map len1) `Seq.append` F.serialize_content (dfst v1') (dsnd v1'));
-  assert (F.serialize_content (dfst v1') (dsnd v1') == LowParse.Spec.VCList.serialize_nlist (List.Tot.length x1) #(LP.and_then_kind F.parse_raw_data_item_kind F.parse_raw_data_item_kind) #_ #(LP.nondep_then  F.parse_raw_data_item F.parse_raw_data_item) (LP.serialize_nondep_then  F.serialize_raw_data_item F.serialize_raw_data_item) x1);
+  assert (F.serialize_content (dfst v1') (dsnd v1') == LParse.Spec.VCList.serialize_nlist (List.Tot.length x1) #(LP.and_then_kind F.parse_raw_data_item_kind F.parse_raw_data_item_kind) #_ #(LP.nondep_then  F.parse_raw_data_item F.parse_raw_data_item) (LP.serialize_nondep_then  F.serialize_raw_data_item F.serialize_raw_data_item) x1);
   Classical.forall_intro (F.tot_nondep_then_eq_gen F.tot_parse_raw_data_item F.parse_raw_data_item F.tot_parse_raw_data_item F.parse_raw_data_item ());
   Classical.forall_intro (parse_nlist_ext' (List.Tot.length x1) #(LP.and_then_kind F.parse_raw_data_item_kind F.parse_raw_data_item_kind) (LP.tot_nondep_then  F.tot_parse_raw_data_item F.tot_parse_raw_data_item) (LP.nondep_then  F.parse_raw_data_item F.parse_raw_data_item) ());
   LP.serializer_unique_strong
-    (LowParse.Spec.VCList.serialize_nlist (List.Tot.length x1) #(LP.and_then_kind F.parse_raw_data_item_kind F.parse_raw_data_item_kind) #_ #(LP.tot_nondep_then  F.tot_parse_raw_data_item F.tot_parse_raw_data_item) (LP.tot_serialize_nondep_then  F.tot_serialize_raw_data_item F.tot_serialize_raw_data_item))
-    (LowParse.Spec.VCList.serialize_nlist (List.Tot.length x1) (LP.serialize_nondep_then  F.serialize_raw_data_item F.serialize_raw_data_item))
+    (LParse.Spec.VCList.serialize_nlist (List.Tot.length x1) #(LP.and_then_kind F.parse_raw_data_item_kind F.parse_raw_data_item_kind) #_ #(LP.tot_nondep_then  F.tot_parse_raw_data_item F.tot_parse_raw_data_item) (LP.tot_serialize_nondep_then  F.tot_serialize_raw_data_item F.tot_serialize_raw_data_item))
+    (LParse.Spec.VCList.serialize_nlist (List.Tot.length x1) (LP.serialize_nondep_then  F.serialize_raw_data_item F.serialize_raw_data_item))
     x1;
-  assert (F.serialize_content (dfst v1') (dsnd v1') == LowParse.Spec.VCList.serialize_nlist (List.Tot.length x1) #(LP.and_then_kind F.parse_raw_data_item_kind F.parse_raw_data_item_kind) #_ #(LP.tot_nondep_then  F.tot_parse_raw_data_item F.tot_parse_raw_data_item) (LP.tot_serialize_nondep_then  F.tot_serialize_raw_data_item F.tot_serialize_raw_data_item) x1);
-  LowParse.Spec.VCList.tot_serialize_nlist_serialize_nlist (List.Tot.length x1) (LP.tot_serialize_nondep_then  F.tot_serialize_raw_data_item F.tot_serialize_raw_data_item) x1;
+  assert (F.serialize_content (dfst v1') (dsnd v1') == LParse.Spec.VCList.serialize_nlist (List.Tot.length x1) #(LP.and_then_kind F.parse_raw_data_item_kind F.parse_raw_data_item_kind) #_ #(LP.tot_nondep_then  F.tot_parse_raw_data_item F.tot_parse_raw_data_item) (LP.tot_serialize_nondep_then  F.tot_serialize_raw_data_item F.tot_serialize_raw_data_item) x1);
+  LParse.Spec.VCList.tot_serialize_nlist_serialize_nlist (List.Tot.length x1) (LP.tot_serialize_nondep_then  F.tot_serialize_raw_data_item F.tot_serialize_raw_data_item) x1;
   ()
 
 let cbor_serialize_map_length_gt_list

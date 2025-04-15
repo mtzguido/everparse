@@ -1,9 +1,9 @@
 module ArithParse.Spec
 include ArithParse.Lib
-open LowParse.Spec.Combinators
-open LowParse.Spec.VCList
-open LowParse.Spec.Recursive
-open LowParse.Spec.Int
+open LParse.Spec.Combinators
+open LParse.Spec.VCList
+open LParse.Spec.Recursive
+open LParse.Spec.Int
 
 module U64 = FStar.UInt64
 module U8 = FStar.UInt8

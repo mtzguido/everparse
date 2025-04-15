@@ -9,12 +9,12 @@ include $(SEPARSE_OPT_PATH)/env.Makefile
 
 SEPARSE_SRC_PATH = $(realpath src)
 
-ALREADY_CACHED := *,-LowParse,-CBOR,-CDDL,
+ALREADY_CACHED := *,-LParse,-CBOR,-CDDL,
 
-SRC_DIRS += src/lowparse src/cbor/spec src/cbor/spec/raw src/cbor/spec/raw/separse src/cddl/spec
+SRC_DIRS += src/lparse src/cbor/spec src/cbor/spec/raw src/cbor/spec/raw/separse src/cddl/spec
 
 ifeq (,$(NO_PULSE))
-  SRC_DIRS += src/lowparse/pulse src/cbor/pulse src/cbor/pulse/raw src/cbor/pulse/raw/separse src/cddl/pulse src/cddl/tool
+  SRC_DIRS += src/lparse/pulse src/cbor/pulse src/cbor/pulse/raw src/cbor/pulse/raw/separse src/cddl/pulse src/cddl/tool
 endif
 
 include $(SEPARSE_SRC_PATH)/karamel.Makefile
@@ -23,20 +23,20 @@ ifeq (,$(NO_PULSE))
 endif
 include $(SEPARSE_SRC_PATH)/common.Makefile
 
-lowparse: $(filter-out src/lowparse/pulse/%,$(filter src/lowparse/%,$(ALL_CHECKED_FILES)))
+lparse: $(filter-out src/lparse/pulse/%,$(filter src/lparse/%,$(ALL_CHECKED_FILES)))
 
-test: all cbor-test cddl-test lowparse-pulse-test
+test: all cbor-test cddl-test lparse-pulse-test
 
 ifeq (,$(NO_PULSE))
-lowparse-pulse: $(filter src/lowparse/pulse/%,$(ALL_CHECKED_FILES))
-lowparse-pulse-test: lowparse-pulse
+lparse-pulse: $(filter src/lparse/pulse/%,$(ALL_CHECKED_FILES))
+lparse-pulse-test: lparse-pulse
 	$(MAKE) -C tests/pulse
 else
-lowparse-pulse:
-lowparse-pulse-test:
+lparse-pulse:
+lparse-pulse-test:
 endif
 
-.PHONY: lowparse-pulse
+.PHONY: lparse-pulse
 
 cbor:
 	+$(MAKE) -C src/cbor/pulse/det
@@ -82,9 +82,9 @@ endif
 
 .PHONY: cbor-verify
 
-# lowparse needed for extraction because of .fst files behind .fsti
+# lparse needed for extraction because of .fst files behind .fsti
 ifeq (,$(NO_PULSE))
-cbor-extract-pre: cbor-verify $(filter-out src/lowparse/LowParse.SLow.% src/lowparse/LowParse.Low.%,$(filter src/lowparse/%,$(ALL_CHECKED_FILES)))
+cbor-extract-pre: cbor-verify $(filter-out src/lparse/LParse.SLow.% src/lparse/LParse.Low.%,$(filter src/lparse/%,$(ALL_CHECKED_FILES)))
 
 .PHONY: cbor-extract-pre
 
@@ -179,6 +179,6 @@ cddl-test: cddl cddl-plugin-test cddl-demo cose-extract-test cddl-unit-tests
 
 .PHONY: cddl-test
 
-ci: test lowparse-pulse cbor-test cddl-test
+ci: test lparse-pulse cbor-test cddl-test
 
 .PHONY: all gen verify test gen-test clean ci

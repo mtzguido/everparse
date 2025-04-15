@@ -4,8 +4,8 @@ include CBOR.Spec.API.UTF8
 open Pulse.Lib.Pervasives
 open CBOR.Spec.Constants
 open CBOR.Spec.Raw.SEParse
-open LowParse.Pulse.Combinators
-open LowParse.Pulse.SeqBytes
+open LParse.Pulse.Combinators
+open LParse.Pulse.SeqBytes
 
 module U8 = FStar.UInt8
 module S = Pulse.Lib.Slice

@@ -1,12 +1,12 @@
 module CBOR.Pulse.Raw.SEParse.Format
 open CBOR.Spec.Raw.SEParse
 open Pulse.Lib.Slice open Pulse.Lib.Pervasives open Pulse.Lib.Trade
-open LowParse.Pulse.Combinators
-open LowParse.Pulse.Recursive
+open LParse.Pulse.Combinators
+open LParse.Pulse.Recursive
 
 module Trade = Pulse.Lib.Trade.Util
 module U64 = FStar.UInt64
-module L = LowParse.Spec.VCList
+module L = LParse.Spec.VCList
 module SZ = FStar.SizeT
 module R = Pulse.Lib.Reference
 module S = Pulse.Lib.Slice

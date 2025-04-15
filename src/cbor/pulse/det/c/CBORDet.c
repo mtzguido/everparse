@@ -3049,25 +3049,25 @@ static header cbor_raw_with_perm_get_header(cbor_raw xl)
 #define Some 1
 
 typedef uint8_t
-option__LowParse_Pulse_Base_with_perm_Pulse_Lib_Slice_slice_CBOR_Pulse_Raw_Type_cbor_raw_tags;
+option__LParse_Pulse_Base_with_perm_Pulse_Lib_Slice_slice_CBOR_Pulse_Raw_Type_cbor_raw_tags;
 
 typedef struct
-option__LowParse_Pulse_Base_with_perm_Pulse_Lib_Slice_slice_CBOR_Pulse_Raw_Type_cbor_raw_s
+option__LParse_Pulse_Base_with_perm_Pulse_Lib_Slice_slice_CBOR_Pulse_Raw_Type_cbor_raw_s
 {
-  option__LowParse_Pulse_Base_with_perm_Pulse_Lib_Slice_slice_CBOR_Pulse_Raw_Type_cbor_raw_tags
+  option__LParse_Pulse_Base_with_perm_Pulse_Lib_Slice_slice_CBOR_Pulse_Raw_Type_cbor_raw_tags
   tag;
   Pulse_Lib_Slice_slice__CBOR_Pulse_Raw_Type_cbor_raw v;
 }
-option__LowParse_Pulse_Base_with_perm_Pulse_Lib_Slice_slice_CBOR_Pulse_Raw_Type_cbor_raw;
+option__LParse_Pulse_Base_with_perm_Pulse_Lib_Slice_slice_CBOR_Pulse_Raw_Type_cbor_raw;
 
 typedef struct
-option__LowParse_Pulse_Base_with_perm_Pulse_Lib_Slice_slice_CBOR_Pulse_Raw_Type_cbor_map_entry_s
+option__LParse_Pulse_Base_with_perm_Pulse_Lib_Slice_slice_CBOR_Pulse_Raw_Type_cbor_map_entry_s
 {
-  option__LowParse_Pulse_Base_with_perm_Pulse_Lib_Slice_slice_CBOR_Pulse_Raw_Type_cbor_raw_tags
+  option__LParse_Pulse_Base_with_perm_Pulse_Lib_Slice_slice_CBOR_Pulse_Raw_Type_cbor_raw_tags
   tag;
   Pulse_Lib_Slice_slice__CBOR_Pulse_Raw_Type_cbor_map_entry v;
 }
-option__LowParse_Pulse_Base_with_perm_Pulse_Lib_Slice_slice_CBOR_Pulse_Raw_Type_cbor_map_entry;
+option__LParse_Pulse_Base_with_perm_Pulse_Lib_Slice_slice_CBOR_Pulse_Raw_Type_cbor_map_entry;
 
 size_t
 CBOR_Pulse_Raw_Format_Serialize_ser_(
@@ -3108,14 +3108,14 @@ CBOR_Pulse_Raw_Format_Serialize_ser_(
     if (ite)
     {
       cbor_raw scrut0 = x_;
-      option__LowParse_Pulse_Base_with_perm_Pulse_Lib_Slice_slice_CBOR_Pulse_Raw_Type_cbor_raw
+      option__LParse_Pulse_Base_with_perm_Pulse_Lib_Slice_slice_CBOR_Pulse_Raw_Type_cbor_raw
       scrut;
       if (scrut0.tag == CBOR_Case_Array)
       {
         cbor_array a = scrut0.case_CBOR_Case_Array;
         scrut =
           (
-            (option__LowParse_Pulse_Base_with_perm_Pulse_Lib_Slice_slice_CBOR_Pulse_Raw_Type_cbor_raw){
+            (option__LParse_Pulse_Base_with_perm_Pulse_Lib_Slice_slice_CBOR_Pulse_Raw_Type_cbor_raw){
               .tag = Some,
               .v = a.cbor_array_ptr
             }
@@ -3124,7 +3124,7 @@ CBOR_Pulse_Raw_Format_Serialize_ser_(
       else
         scrut =
           (
-            (option__LowParse_Pulse_Base_with_perm_Pulse_Lib_Slice_slice_CBOR_Pulse_Raw_Type_cbor_raw){
+            (option__LParse_Pulse_Base_with_perm_Pulse_Lib_Slice_slice_CBOR_Pulse_Raw_Type_cbor_raw){
               .tag = None
             }
           );
@@ -3186,14 +3186,14 @@ CBOR_Pulse_Raw_Format_Serialize_ser_(
     if (ite)
     {
       cbor_raw scrut0 = x_;
-      option__LowParse_Pulse_Base_with_perm_Pulse_Lib_Slice_slice_CBOR_Pulse_Raw_Type_cbor_map_entry
+      option__LParse_Pulse_Base_with_perm_Pulse_Lib_Slice_slice_CBOR_Pulse_Raw_Type_cbor_map_entry
       scrut;
       if (scrut0.tag == CBOR_Case_Map)
       {
         cbor_map a = scrut0.case_CBOR_Case_Map;
         scrut =
           (
-            (option__LowParse_Pulse_Base_with_perm_Pulse_Lib_Slice_slice_CBOR_Pulse_Raw_Type_cbor_map_entry){
+            (option__LParse_Pulse_Base_with_perm_Pulse_Lib_Slice_slice_CBOR_Pulse_Raw_Type_cbor_map_entry){
               .tag = Some,
               .v = a.cbor_map_ptr
             }
@@ -3202,7 +3202,7 @@ CBOR_Pulse_Raw_Format_Serialize_ser_(
       else
         scrut =
           (
-            (option__LowParse_Pulse_Base_with_perm_Pulse_Lib_Slice_slice_CBOR_Pulse_Raw_Type_cbor_map_entry){
+            (option__LParse_Pulse_Base_with_perm_Pulse_Lib_Slice_slice_CBOR_Pulse_Raw_Type_cbor_map_entry){
               .tag = None
             }
           );
@@ -3348,14 +3348,14 @@ bool CBOR_Pulse_Raw_Format_Serialize_siz_(cbor_raw x_, size_t *out)
       if (ite0)
       {
         cbor_raw scrut0 = x_;
-        option__LowParse_Pulse_Base_with_perm_Pulse_Lib_Slice_slice_CBOR_Pulse_Raw_Type_cbor_raw
+        option__LParse_Pulse_Base_with_perm_Pulse_Lib_Slice_slice_CBOR_Pulse_Raw_Type_cbor_raw
         scrut;
         if (scrut0.tag == CBOR_Case_Array)
         {
           cbor_array a = scrut0.case_CBOR_Case_Array;
           scrut =
             (
-              (option__LowParse_Pulse_Base_with_perm_Pulse_Lib_Slice_slice_CBOR_Pulse_Raw_Type_cbor_raw){
+              (option__LParse_Pulse_Base_with_perm_Pulse_Lib_Slice_slice_CBOR_Pulse_Raw_Type_cbor_raw){
                 .tag = Some,
                 .v = a.cbor_array_ptr
               }
@@ -3364,7 +3364,7 @@ bool CBOR_Pulse_Raw_Format_Serialize_siz_(cbor_raw x_, size_t *out)
         else
           scrut =
             (
-              (option__LowParse_Pulse_Base_with_perm_Pulse_Lib_Slice_slice_CBOR_Pulse_Raw_Type_cbor_raw){
+              (option__LParse_Pulse_Base_with_perm_Pulse_Lib_Slice_slice_CBOR_Pulse_Raw_Type_cbor_raw){
                 .tag = None
               }
             );
@@ -3432,14 +3432,14 @@ bool CBOR_Pulse_Raw_Format_Serialize_siz_(cbor_raw x_, size_t *out)
       if (ite0)
       {
         cbor_raw scrut0 = x_;
-        option__LowParse_Pulse_Base_with_perm_Pulse_Lib_Slice_slice_CBOR_Pulse_Raw_Type_cbor_map_entry
+        option__LParse_Pulse_Base_with_perm_Pulse_Lib_Slice_slice_CBOR_Pulse_Raw_Type_cbor_map_entry
         scrut;
         if (scrut0.tag == CBOR_Case_Map)
         {
           cbor_map a = scrut0.case_CBOR_Case_Map;
           scrut =
             (
-              (option__LowParse_Pulse_Base_with_perm_Pulse_Lib_Slice_slice_CBOR_Pulse_Raw_Type_cbor_map_entry){
+              (option__LParse_Pulse_Base_with_perm_Pulse_Lib_Slice_slice_CBOR_Pulse_Raw_Type_cbor_map_entry){
                 .tag = Some,
                 .v = a.cbor_map_ptr
               }
@@ -3448,7 +3448,7 @@ bool CBOR_Pulse_Raw_Format_Serialize_siz_(cbor_raw x_, size_t *out)
         else
           scrut =
             (
-              (option__LowParse_Pulse_Base_with_perm_Pulse_Lib_Slice_slice_CBOR_Pulse_Raw_Type_cbor_map_entry){
+              (option__LParse_Pulse_Base_with_perm_Pulse_Lib_Slice_slice_CBOR_Pulse_Raw_Type_cbor_map_entry){
                 .tag = None
               }
             );
@@ -3874,7 +3874,7 @@ __CBOR_Pulse_Raw_Type_cbor_serialized_CBOR_Pulse_Raw_Type_cbor_serialized;
 typedef struct
 option___CBOR_Pulse_Raw_Type_cbor_serialized___CBOR_Pulse_Raw_Type_cbor_serialized__s
 {
-  option__LowParse_Pulse_Base_with_perm_Pulse_Lib_Slice_slice_CBOR_Pulse_Raw_Type_cbor_raw_tags
+  option__LParse_Pulse_Base_with_perm_Pulse_Lib_Slice_slice_CBOR_Pulse_Raw_Type_cbor_raw_tags
   tag;
   __CBOR_Pulse_Raw_Type_cbor_serialized_CBOR_Pulse_Raw_Type_cbor_serialized v;
 }
@@ -5515,7 +5515,7 @@ cbor_raw cbor_det_map_entry_value(cbor_map_entry x2)
 
 typedef struct option__CBOR_Pulse_Raw_Type_cbor_raw_s
 {
-  option__LowParse_Pulse_Base_with_perm_Pulse_Lib_Slice_slice_CBOR_Pulse_Raw_Type_cbor_raw_tags
+  option__LParse_Pulse_Base_with_perm_Pulse_Lib_Slice_slice_CBOR_Pulse_Raw_Type_cbor_raw_tags
   tag;
   cbor_raw v;
 }

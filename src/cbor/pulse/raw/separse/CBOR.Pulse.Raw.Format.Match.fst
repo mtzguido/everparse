@@ -1,8 +1,8 @@
 module CBOR.Pulse.Raw.Format.Match
 #lang-pulse
 open CBOR.Spec.Raw.SEParse
-open LowParse.Spec.VCList
-open LowParse.Pulse.Base
+open LParse.Spec.VCList
+open LParse.Pulse.Base
 
 module U64 = FStar.UInt64
 

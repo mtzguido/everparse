@@ -10,7 +10,7 @@ representation.
 
 * `raw/`: Pulse implementations of those interfaces, proven correct
   wrt. the respective function signatures. The `raw/separse/`
-  subdirectory needs LowParse+Pulse to typecheck.
+  subdirectory needs LParse+Pulse to typecheck.
 
 * `det/`: Karamel extraction rules and C and Rust extracted code for
   the deterministic subset of CBOR. The extracted code does not need

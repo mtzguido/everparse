@@ -11,7 +11,7 @@ module S = Pulse.Lib.Slice
 module R = Pulse.Lib.Reference
 module SZ = FStar.SizeT
 module Trade = Pulse.Lib.Trade.Util
-module LP = LowParse.Pulse.VCList
+module LP = LParse.Pulse.VCList
 module U64 = FStar.UInt64
 
 let cbor_raw_serialized_iterator_match
@@ -211,7 +211,7 @@ let cbor_raw_serialized_iterator_next_cont
         (LP.pts_to_serialized s x #pm v)
     )
 
-module LPC = LowParse.Pulse.Combinators
+module LPC = LParse.Pulse.Combinators
 
 inline_for_extraction
 fn cbor_raw_serialized_iterator_next
@@ -244,7 +244,7 @@ fn cbor_raw_serialized_iterator_next
     #(pm *. i.p)
     v'
   );
-  let s1, s2 = LowParse.Pulse.Combinators.split_nondep_then
+  let s1, s2 = LParse.Pulse.Combinators.split_nondep_then
     s
     j
     #k'

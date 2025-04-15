@@ -2,7 +2,7 @@ all: extract
 
 SEPARSE_SRC_PATH = $(realpath ../../../..)
 SRC_DIRS += $(SEPARSE_SRC_PATH)/cbor/pulse
-INCLUDE_PATHS += $(SEPARSE_SRC_PATH)/cbor/spec $(SEPARSE_SRC_PATH)/cbor/spec/raw $(SEPARSE_SRC_PATH)/cbor/spec/raw/separse $(SEPARSE_SRC_PATH)/cbor/pulse/raw $(SEPARSE_SRC_PATH)/cbor/pulse/raw/separse $(SEPARSE_SRC_PATH)/lowparse $(SEPARSE_SRC_PATH)/lowparse/pulse
+INCLUDE_PATHS += $(SEPARSE_SRC_PATH)/cbor/spec $(SEPARSE_SRC_PATH)/cbor/spec/raw $(SEPARSE_SRC_PATH)/cbor/spec/raw/separse $(SEPARSE_SRC_PATH)/cbor/pulse/raw $(SEPARSE_SRC_PATH)/cbor/pulse/raw/separse $(SEPARSE_SRC_PATH)/lparse $(SEPARSE_SRC_PATH)/lparse/pulse
 
 FSTAR_OPTIONS += --warn_error -342
 FSTAR_OPTIONS += --ext extraction_inline_all

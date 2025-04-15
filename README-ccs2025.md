@@ -1,9 +1,9 @@
 This package contains the supplementary material for ACM CCS 2025 submission.
 
 Section 2.2:
-- the Pulse implementation combinators are in `src/lowparse/pulse`
-- the recursive combinator specification is in `src/lowparse/LowParse.Spec.Recursive.fst*`
-- in particular, the validator and jumper for the recursive format is in `src/lowparse/pulse/LowParse.Pulse.Recursive.fst`
+- the Pulse implementation combinators are in `src/lparse/pulse`
+- the recursive combinator specification is in `src/lparse/LParse.Spec.Recursive.fst*`
+- in particular, the validator and jumper for the recursive format is in `src/lparse/pulse/LParse.Pulse.Recursive.fst`
 
 Section 3.2:
 - the CBOR raw data type is defined in `src/cbor/spec/raw/CBOR.Spec.Raw.Base.fst`

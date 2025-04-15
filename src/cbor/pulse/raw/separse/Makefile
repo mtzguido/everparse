@@ -1,7 +1,7 @@
 all: verify
 
 SEPARSE_SRC_PATH = $(realpath ../../../..)
-INCLUDE_PATHS += $(realpath ..) $(realpath ../..) $(realpath ../../../spec) $(realpath ../../../spec/raw) $(realpath ../../../spec/raw/separse) $(SEPARSE_SRC_PATH)/lowparse $(SEPARSE_SRC_PATH)/lowparse/pulse
+INCLUDE_PATHS += $(realpath ..) $(realpath ../..) $(realpath ../../../spec) $(realpath ../../../spec/raw) $(realpath ../../../spec/raw/separse) $(SEPARSE_SRC_PATH)/lparse $(SEPARSE_SRC_PATH)/lparse/pulse
 
 ALREADY_CACHED := *,-CBOR.Pulse.Raw.Format,-CBOR.Pulse.Raw.SEParse,
 

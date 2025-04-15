@@ -6,7 +6,7 @@ open CBOR.Pulse.Raw.SEParse.Iterator
 open Pulse.Lib.Slice open Pulse.Lib.Pervasives open Pulse.Lib.Trade
 open CBOR.Spec.Raw.SEParse
 open CBOR.Pulse.Raw.SEParse.Format
-open LowParse.Pulse.Combinators
+open LParse.Pulse.Combinators
 open CBOR.Pulse.Raw.SEParse.Serialized.Base
 friend CBOR.Pulse.Raw.Format.Match
 
@@ -56,7 +56,7 @@ fn cbor_match_serialized_tagged_get_payload
   res
 }
 
-module LP = LowParse.Pulse.VCList
+module LP = LParse.Pulse.VCList
 
 ghost
 fn cbor_match_serialized_array_elim
@@ -108,7 +108,7 @@ ensures exists* y .
   cbor_match_serialized_array_elim c pm r;
   let _ : squash (SZ.fits_u64) = assume SZ.fits_u64;
   let j : SZ.t = SZ.uint64_to_sizet i;
-  let elt = LowParse.Pulse.VCList.nlist_nth _ (jump_raw_data_item ()) (U64.v (Array?.len r).value) c.cbor_serialized_payload j;
+  let elt = LParse.Pulse.VCList.nlist_nth _ (jump_raw_data_item ()) (U64.v (Array?.len r).value) c.cbor_serialized_payload j;
   Trade.trans _ _ (cbor_match_serialized_array c pm r);
   let res = cbor_read elt;
   Trade.trans _ _ (cbor_match_serialized_array c pm r);
@@ -137,7 +137,7 @@ ensures
 {
   cbor_match_serialized_array_elim c pm r;
   with p . assert (
-    (pts_to_serialized (LowParse.Spec.VCList.serialize_nlist (U64.v (Array?.len (Ghost.reveal r)).value)
+    (pts_to_serialized (LParse.Spec.VCList.serialize_nlist (U64.v (Array?.len (Ghost.reveal r)).value)
           serialize_raw_data_item)
       c.cbor_serialized_payload
       #p
@@ -150,12 +150,12 @@ ensures
     len = c.cbor_serialized_header.value;
   };
   Trade.rewrite_with_trade
-    (pts_to_serialized (LowParse.Spec.VCList.serialize_nlist (U64.v (Array?.len (Ghost.reveal r)).value)
+    (pts_to_serialized (LParse.Spec.VCList.serialize_nlist (U64.v (Array?.len (Ghost.reveal r)).value)
           serialize_raw_data_item)
       c.cbor_serialized_payload
       #p
       (Array?.v (Ghost.reveal r)))
-    (pts_to_serialized (LowParse.Spec.VCList.serialize_nlist (Ghost.reveal res.glen)
+    (pts_to_serialized (LParse.Spec.VCList.serialize_nlist (Ghost.reveal res.glen)
           serialize_raw_data_item)
       res.s
       #p
@@ -190,7 +190,7 @@ let cbor_serialized_array_iterator_gather = cbor_raw_serialized_iterator_gather 
 
 let cbor_serialized_map_iterator_match = cbor_raw_serialized_iterator_match (serialize_nondep_then serialize_raw_data_item serialize_raw_data_item)
 
-module LP = LowParse.Pulse.VCList
+module LP = LParse.Pulse.VCList
 
 ghost
 fn cbor_match_serialized_map_elim
@@ -236,7 +236,7 @@ ensures
 {
   cbor_match_serialized_map_elim c pm r;
   with p . assert (
-    (pts_to_serialized (LowParse.Spec.VCList.serialize_nlist (U64.v (Map?.len (Ghost.reveal r)).value)
+    (pts_to_serialized (LParse.Spec.VCList.serialize_nlist (U64.v (Map?.len (Ghost.reveal r)).value)
           (serialize_nondep_then serialize_raw_data_item serialize_raw_data_item))
       c.cbor_serialized_payload
       #p
@@ -249,12 +249,12 @@ ensures
     len = c.cbor_serialized_header.value;
   };
   Trade.rewrite_with_trade
-    (pts_to_serialized (LowParse.Spec.VCList.serialize_nlist (U64.v (Map?.len (Ghost.reveal r)).value)
+    (pts_to_serialized (LParse.Spec.VCList.serialize_nlist (U64.v (Map?.len (Ghost.reveal r)).value)
           (serialize_nondep_then serialize_raw_data_item serialize_raw_data_item))
       c.cbor_serialized_payload
       #p
       (Map?.v (Ghost.reveal r)))
-    (pts_to_serialized (LowParse.Spec.VCList.serialize_nlist (Ghost.reveal res.glen)
+    (pts_to_serialized (LParse.Spec.VCList.serialize_nlist (Ghost.reveal res.glen)
           (serialize_nondep_then serialize_raw_data_item serialize_raw_data_item))
       res.s
       #p
@@ -270,7 +270,7 @@ ensures
 
 let cbor_serialized_map_iterator_is_empty = cbor_raw_serialized_iterator_is_empty _
 
-module LPC = LowParse.Pulse.Combinators
+module LPC = LParse.Pulse.Combinators
 
 inline_for_extraction
 fn cbor_serialized_map_iterator_next_cont (sq: squash SZ.fits_u64)
