@@ -1,9 +1,0 @@
-{
-  "fstar_exe": "./out/bin/fstar.exe",
-  "options": [
-    "--z3version", "4.13.3",
-    "--ext", "context_pruning"
-  ],
-  "include_dirs": [
-  ]
-}
