@@ -25,12 +25,15 @@ include $(EVERPARSE_SRC_PATH)/common.Makefile
 
 lowparse: $(filter-out src/lowparse/pulse/%,$(filter src/lowparse/%,$(ALL_CHECKED_FILES)))
 
-test: all cbor-test cddl-test
+test: all cbor-test cddl-test lowparse-pulse-test
 
 ifeq (,$(NO_PULSE))
 lowparse-pulse: $(filter src/lowparse/pulse/%,$(ALL_CHECKED_FILES))
+lowparse-pulse-test: lowparse-pulse
+	$(MAKE) -C tests/pulse
 else
 lowparse-pulse:
+lowparse-pulse-test:
 endif
 
 .PHONY: lowparse-pulse
