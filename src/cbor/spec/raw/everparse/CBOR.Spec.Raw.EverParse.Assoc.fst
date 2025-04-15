@@ -1,4 +1,4 @@
-module CBOR.Spec.Raw.EverParse.Assoc
+module CBOR.Spec.Raw.SEParse.Assoc
 open CBOR.Spec.Raw.Valid
 include LowParse.Spec.Combinators
 include LowParse.Spec.List

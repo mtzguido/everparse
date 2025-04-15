@@ -1,12 +1,12 @@
 all: build
 
-EVERPARSE_SRC_PATH = $(realpath ../..)
-INCLUDE_PATHS += $(EVERPARSE_SRC_PATH)/cbor/spec $(EVERPARSE_SRC_PATH)/cddl/spec $(EVERPARSE_SRC_PATH)/cddl/pulse $(EVERPARSE_SRC_PATH)/cbor/pulse
+SEPARSE_SRC_PATH = $(realpath ../..)
+INCLUDE_PATHS += $(SEPARSE_SRC_PATH)/cbor/spec $(SEPARSE_SRC_PATH)/cddl/spec $(SEPARSE_SRC_PATH)/cddl/pulse $(SEPARSE_SRC_PATH)/cbor/pulse
 
 ALREADY_CACHED := *,-CDDL.Tool,
 
-include $(EVERPARSE_SRC_PATH)/pulse.Makefile
-include $(EVERPARSE_SRC_PATH)/common.Makefile
+include $(SEPARSE_SRC_PATH)/pulse.Makefile
+include $(SEPARSE_SRC_PATH)/common.Makefile
 
 ocaml.done: $(ALL_CHECKED_FILES)
 	rm -f $@
@@ -18,14 +18,14 @@ plugin.done: $(ALL_CHECKED_FILES)
 	+$(MAKE) -f $(basename $@).Makefile
 	touch $@
 
-EVERPARSE_CDDL=$(EVERPARSE_SRC_PATH)/../bin/cddl.exe
+SEPARSE_CDDL=$(SEPARSE_SRC_PATH)/../bin/cddl.exe
 
-build: $(EVERPARSE_CDDL)
+build: $(SEPARSE_CDDL)
 
 .PHONY: build
 
-$(EVERPARSE_CDDL): ocaml.done plugin.done $(wildcard ocaml/*/*.ml*)
+$(SEPARSE_CDDL): ocaml.done plugin.done $(wildcard ocaml/*/*.ml*)
 	cd ocaml && $(FSTAR_EXE) --ocamlenv dune build
-	cd ocaml && dune install --prefix=$(realpath $(EVERPARSE_SRC_PATH)/..)
+	cd ocaml && dune install --prefix=$(realpath $(SEPARSE_SRC_PATH)/..)
 
 .PHONY: all

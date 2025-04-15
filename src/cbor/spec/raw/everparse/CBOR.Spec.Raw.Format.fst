@@ -1,5 +1,5 @@
 module CBOR.Spec.Raw.Format
-module F = CBOR.Spec.Raw.EverParse
+module F = CBOR.Spec.Raw.SEParse
 module M = CBOR.Spec.Raw.Map
 module LP = LowParse.Spec.Combinators
 
@@ -38,8 +38,8 @@ let deterministically_encoded_cbor_map_key_order_assoc_ext m1 m2 ext =
   let sq1 : squash (List.Tot.sorted (map_entry_order deterministically_encoded_cbor_map_key_order _) m1) = () in
   let sq2 : squash (List.Tot.sorted (map_entry_order deterministically_encoded_cbor_map_key_order _) m2) = () in
  F.deterministically_encoded_cbor_map_key_order_assoc_ext m1 m2 (fun k ->
-  CBOR.Spec.Raw.EverParse.Assoc.list_ghost_assoc_eq k m1;
-  CBOR.Spec.Raw.EverParse.Assoc.list_ghost_assoc_eq k m2;
+  CBOR.Spec.Raw.SEParse.Assoc.list_ghost_assoc_eq k m1;
+  CBOR.Spec.Raw.SEParse.Assoc.list_ghost_assoc_eq k m2;
   ext k) sq1 sq2
 
 let list_sorted_map_entry_order_deterministically_encoded_cbor_map_key_order_no_repeats

@@ -1,4 +1,4 @@
-module CBOR.Pulse.Raw.EverParse.Iterator
+module CBOR.Pulse.Raw.SEParse.Iterator
 #lang-pulse
 open CBOR.Spec.Util
 open CBOR.Pulse.Raw.Util

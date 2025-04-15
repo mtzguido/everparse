@@ -2,12 +2,12 @@ module CBOR.Pulse.Raw.Format.Serialized
 #lang-pulse
 open CBOR.Spec.Raw.Base
 open CBOR.Pulse.Raw.Iterator
-open CBOR.Pulse.Raw.EverParse.Iterator
+open CBOR.Pulse.Raw.SEParse.Iterator
 open Pulse.Lib.Slice open Pulse.Lib.Pervasives open Pulse.Lib.Trade
-open CBOR.Spec.Raw.EverParse
-open CBOR.Pulse.Raw.EverParse.Format
+open CBOR.Spec.Raw.SEParse
+open CBOR.Pulse.Raw.SEParse.Format
 open LowParse.Pulse.Combinators
-open CBOR.Pulse.Raw.EverParse.Serialized.Base
+open CBOR.Pulse.Raw.SEParse.Serialized.Base
 friend CBOR.Pulse.Raw.Format.Match
 
 module Trade = Pulse.Lib.Trade.Util

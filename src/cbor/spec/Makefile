@@ -1,6 +1,6 @@
 all: verify
 
-EVERPARSE_SRC_PATH = $(realpath ../..)
+SEPARSE_SRC_PATH = $(realpath ../..)
 ALREADY_CACHED := *,-CBOR.Spec,
 
-include $(EVERPARSE_SRC_PATH)/common.Makefile
+include $(SEPARSE_SRC_PATH)/common.Makefile

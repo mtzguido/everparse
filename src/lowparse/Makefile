@@ -6,13 +6,13 @@
 
 all: verify
 
-EVERPARSE_SRC_PATH = $(realpath ..)
+SEPARSE_SRC_PATH = $(realpath ..)
 
-include $(EVERPARSE_SRC_PATH)/karamel.Makefile
+include $(SEPARSE_SRC_PATH)/karamel.Makefile
 
 ALREADY_CACHED := *,-LowParse,
 
-include $(EVERPARSE_SRC_PATH)/common.Makefile
+include $(SEPARSE_SRC_PATH)/common.Makefile
 
 clean:
 	rm -rf *.checked *.source .depend

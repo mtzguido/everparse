@@ -1,12 +1,12 @@
 all: build interop
 
-EVERPARSE_SRC_PATH = $(realpath ..)
+SEPARSE_SRC_PATH = $(realpath ..)
 
 OUTPUT_DIRECTORY=_output
 OUTPUT=$(OUTPUT_DIRECTORY)/COSE.Format.fst
 
 $(OUTPUT): cose.cddl ../cddl/spec/postlude.cddl
-	$(EVERPARSE_SRC_PATH)/../bin/cddl.exe $^ --mname COSE.Format --odir $(dir $(OUTPUT))
+	$(SEPARSE_SRC_PATH)/../bin/cddl.exe $^ --mname COSE.Format --odir $(dir $(OUTPUT))
 	cp extract0.Makefile $(OUTPUT_DIRECTORY)/Makefile
 
 build:

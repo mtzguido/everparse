@@ -47,5 +47,5 @@
 
                  any = #
 
-; EverParse CDDL also introduces:
+; SEParse CDDL also introduces:
 ; `everparse-no-match`, a typename to denote empty types that never match

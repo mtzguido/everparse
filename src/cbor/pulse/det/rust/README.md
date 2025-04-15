@@ -1,6 +1,6 @@
 This directory contains the safe Rust code extracted from the verified
 Deterministic CBOR validators, parsers and serializers written in F*
-and Pulse with EverParse.
+and Pulse with SEParse.
 
 * `src/cbordet.rs` is the entrypoint of the library. It contains the
   user-facing API as handwritten unverified glue code calling into the

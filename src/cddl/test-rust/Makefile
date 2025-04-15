@@ -1,11 +1,11 @@
 all: build-rust
 
-EVERPARSE_SRC_PATH = $(realpath ../..)
+SEPARSE_SRC_PATH = $(realpath ../..)
 
 OUTPUT=_output/CDDLTest.Test.fst
 
 $(OUTPUT): test.cddl
-	$(EVERPARSE_SRC_PATH)/../bin/cddl.exe $^ --odir $(dir $(OUTPUT)) --rust
+	$(SEPARSE_SRC_PATH)/../bin/cddl.exe $^ --odir $(dir $(OUTPUT)) --rust
 
 extract-all: $(OUTPUT)
 	+$(MAKE) -f extract.Makefile extract

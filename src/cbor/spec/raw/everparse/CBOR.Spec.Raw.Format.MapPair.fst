@@ -3,7 +3,7 @@ friend CBOR.Spec.API.Type
 friend CBOR.Spec.Raw.DataModel
 open LowParse.Spec.Combinators
 open LowParse.Spec.VCList
-open CBOR.Spec.Raw.EverParse
+open CBOR.Spec.Raw.SEParse
 open CBOR.Spec.Raw.Format
 open CBOR.Spec.Util
 open LowParse.Spec.SeqBytes

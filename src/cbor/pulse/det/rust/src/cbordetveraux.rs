@@ -2551,35 +2551,35 @@ pub(crate) fn cbor_map_iterator_next <'b, 'a>(
 }
 
 fn
-__proj__Mkdtuple2__item___1__CBOR_Spec_Raw_EverParse_initial_byte_t_CBOR_Spec_Raw_EverParse_long_argument(
+__proj__Mkdtuple2__item___1__CBOR_Spec_Raw_SEParse_initial_byte_t_CBOR_Spec_Raw_SEParse_long_argument(
     pair: header
 ) ->
     initial_byte_t
 { pair.fst }
 
-fn dfst__CBOR_Spec_Raw_EverParse_initial_byte_t_CBOR_Spec_Raw_EverParse_long_argument(
+fn dfst__CBOR_Spec_Raw_SEParse_initial_byte_t_CBOR_Spec_Raw_SEParse_long_argument(
     t: header
 ) ->
     initial_byte_t
 {
-    __proj__Mkdtuple2__item___1__CBOR_Spec_Raw_EverParse_initial_byte_t_CBOR_Spec_Raw_EverParse_long_argument(
+    __proj__Mkdtuple2__item___1__CBOR_Spec_Raw_SEParse_initial_byte_t_CBOR_Spec_Raw_SEParse_long_argument(
         t
     )
 }
 
 fn
-__proj__Mkdtuple2__item___2__CBOR_Spec_Raw_EverParse_initial_byte_t_CBOR_Spec_Raw_EverParse_long_argument(
+__proj__Mkdtuple2__item___2__CBOR_Spec_Raw_SEParse_initial_byte_t_CBOR_Spec_Raw_SEParse_long_argument(
     pair: header
 ) ->
     long_argument
 { pair.snd }
 
-fn dsnd__CBOR_Spec_Raw_EverParse_initial_byte_t_CBOR_Spec_Raw_EverParse_long_argument(
+fn dsnd__CBOR_Spec_Raw_SEParse_initial_byte_t_CBOR_Spec_Raw_SEParse_long_argument(
     t: header
 ) ->
     long_argument
 {
-    __proj__Mkdtuple2__item___2__CBOR_Spec_Raw_EverParse_initial_byte_t_CBOR_Spec_Raw_EverParse_long_argument(
+    __proj__Mkdtuple2__item___2__CBOR_Spec_Raw_SEParse_initial_byte_t_CBOR_Spec_Raw_SEParse_long_argument(
         t
     )
 }
@@ -2587,7 +2587,7 @@ fn dsnd__CBOR_Spec_Raw_EverParse_initial_byte_t_CBOR_Spec_Raw_EverParse_long_arg
 fn write_header(x: header, out: &mut [u8], offset: usize) -> usize
 {
     let xh1: initial_byte_t =
-        dfst__CBOR_Spec_Raw_EverParse_initial_byte_t_CBOR_Spec_Raw_EverParse_long_argument(x);
+        dfst__CBOR_Spec_Raw_SEParse_initial_byte_t_CBOR_Spec_Raw_SEParse_long_argument(x);
     let pos·: usize = offset.wrapping_add(1usize);
     let n·: u8 =
         set_bitfield_gen8(
@@ -2599,7 +2599,7 @@ fn write_header(x: header, out: &mut [u8], offset: usize) -> usize
     out[pos·.wrapping_sub(1usize)] = n·;
     let res1: usize = pos·;
     let x2·: long_argument =
-        dsnd__CBOR_Spec_Raw_EverParse_initial_byte_t_CBOR_Spec_Raw_EverParse_long_argument(x);
+        dsnd__CBOR_Spec_Raw_SEParse_initial_byte_t_CBOR_Spec_Raw_SEParse_long_argument(x);
     let res: usize =
         if xh1.additional_info == additional_info_long_argument_8_bits
         {
@@ -2739,7 +2739,7 @@ fn write_header(x: header, out: &mut [u8], offset: usize) -> usize
 fn size_header(x: header, out: &mut [usize]) -> bool
 {
     let xh1: initial_byte_t =
-        dfst__CBOR_Spec_Raw_EverParse_initial_byte_t_CBOR_Spec_Raw_EverParse_long_argument(x);
+        dfst__CBOR_Spec_Raw_SEParse_initial_byte_t_CBOR_Spec_Raw_SEParse_long_argument(x);
     let capacity: usize = out[0];
     let res: bool =
         if capacity < 1usize
@@ -2753,7 +2753,7 @@ fn size_header(x: header, out: &mut [usize]) -> bool
     if res1
     {
         let x2·: long_argument =
-            dsnd__CBOR_Spec_Raw_EverParse_initial_byte_t_CBOR_Spec_Raw_EverParse_long_argument(x);
+            dsnd__CBOR_Spec_Raw_SEParse_initial_byte_t_CBOR_Spec_Raw_SEParse_long_argument(x);
         crate::lowstar::ignore::ignore::<long_argument>(x2·);
         let res0: bool =
             if xh1.additional_info == additional_info_long_argument_8_bits

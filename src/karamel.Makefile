@@ -1,10 +1,10 @@
-ifeq (,$(EVERPARSE_SRC_PATH))
-  $(error "EVERPARSE_SRC_PATH must be set to the absolute path of the src/ subdirectory of the EverParse repository")
+ifeq (,$(SEPARSE_SRC_PATH))
+  $(error "SEPARSE_SRC_PATH must be set to the absolute path of the src/ subdirectory of the SEParse repository")
 endif
 
 ifeq (,$(KRML_HOME))
   # assuming Everest layout
-  KRML_HOME := $(realpath $(EVERPARSE_SRC_PATH)/../../karamel)
+  KRML_HOME := $(realpath $(SEPARSE_SRC_PATH)/../../karamel)
   ifeq (,$(KRML_HOME))
     $(error "KRML_HOME must be defined and set to the root directory of the Karamel repository")
   endif

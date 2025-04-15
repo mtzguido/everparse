@@ -1,4 +1,4 @@
-module CBOR.Pulse.Raw.EverParse.UTF8
+module CBOR.Pulse.Raw.SEParse.UTF8
 #lang-pulse
 friend CBOR.Spec.API.UTF8
 friend CBOR.Spec.Raw.Format.UTF8

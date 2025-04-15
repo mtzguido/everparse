@@ -1,9 +1,9 @@
 module CBOR.Pulse.Raw.Format.Parse
 #lang-pulse
-open CBOR.Pulse.Raw.EverParse.Serialized.Base
+open CBOR.Pulse.Raw.SEParse.Serialized.Base
 friend CBOR.Spec.Raw.Format
-open CBOR.Spec.Raw.EverParse
-open CBOR.Pulse.Raw.EverParse.Format
+open CBOR.Spec.Raw.SEParse
+open CBOR.Pulse.Raw.SEParse.Format
 open LowParse.Spec.Base
 open LowParse.Pulse.Base
 

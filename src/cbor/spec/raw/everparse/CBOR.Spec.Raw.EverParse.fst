@@ -1,11 +1,11 @@
-module CBOR.Spec.Raw.EverParse
+module CBOR.Spec.Raw.SEParse
 include CBOR.Spec.Raw.Base
 open CBOR.Spec.Raw.Valid
 open LowParse.Spec
 open LowParse.Spec.BitSum
 open LowParse.Spec.Recursive
 open LowParse.Spec.SeqBytes
-open CBOR.Spec.Raw.EverParse.Assoc
+open CBOR.Spec.Raw.SEParse.Assoc
 open CBOR.Spec.Util
 
 (* RFC 8949

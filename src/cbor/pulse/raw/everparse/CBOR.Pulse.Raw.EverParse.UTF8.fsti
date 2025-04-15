@@ -1,9 +1,9 @@
-module CBOR.Pulse.Raw.EverParse.UTF8
+module CBOR.Pulse.Raw.SEParse.UTF8
 #lang-pulse
 include CBOR.Spec.API.UTF8
 open Pulse.Lib.Pervasives
 open CBOR.Spec.Constants
-open CBOR.Spec.Raw.EverParse
+open CBOR.Spec.Raw.SEParse
 open LowParse.Pulse.Combinators
 open LowParse.Pulse.SeqBytes
 

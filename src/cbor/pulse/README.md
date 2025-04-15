@@ -6,7 +6,7 @@ representation.
 * `./*.fsti`: F* interfaces with Pulse function signatures, with the
   functional correctness statement against the specifications in
   `../spec`. These interfaces are enough for verified clients. They
-  can be typechecked without the rest of EverParse.
+  can be typechecked without the rest of SEParse.
 
 * `raw/`: Pulse implementations of those interfaces, proven correct
   wrt. the respective function signatures. The `raw/everparse/`

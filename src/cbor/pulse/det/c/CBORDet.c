@@ -2607,7 +2607,7 @@ cbor_map_iterator_next(
 }
 
 static initial_byte_t
-__proj__Mkdtuple2__item___1__CBOR_Spec_Raw_EverParse_initial_byte_t_CBOR_Spec_Raw_EverParse_long_argument(
+__proj__Mkdtuple2__item___1__CBOR_Spec_Raw_SEParse_initial_byte_t_CBOR_Spec_Raw_SEParse_long_argument(
   header pair
 )
 {
@@ -2615,14 +2615,14 @@ __proj__Mkdtuple2__item___1__CBOR_Spec_Raw_EverParse_initial_byte_t_CBOR_Spec_Ra
 }
 
 static initial_byte_t
-dfst__CBOR_Spec_Raw_EverParse_initial_byte_t_CBOR_Spec_Raw_EverParse_long_argument(header t)
+dfst__CBOR_Spec_Raw_SEParse_initial_byte_t_CBOR_Spec_Raw_SEParse_long_argument(header t)
 {
   return
-    __proj__Mkdtuple2__item___1__CBOR_Spec_Raw_EverParse_initial_byte_t_CBOR_Spec_Raw_EverParse_long_argument(t);
+    __proj__Mkdtuple2__item___1__CBOR_Spec_Raw_SEParse_initial_byte_t_CBOR_Spec_Raw_SEParse_long_argument(t);
 }
 
 static long_argument
-__proj__Mkdtuple2__item___2__CBOR_Spec_Raw_EverParse_initial_byte_t_CBOR_Spec_Raw_EverParse_long_argument(
+__proj__Mkdtuple2__item___2__CBOR_Spec_Raw_SEParse_initial_byte_t_CBOR_Spec_Raw_SEParse_long_argument(
   header pair
 )
 {
@@ -2630,23 +2630,23 @@ __proj__Mkdtuple2__item___2__CBOR_Spec_Raw_EverParse_initial_byte_t_CBOR_Spec_Ra
 }
 
 static long_argument
-dsnd__CBOR_Spec_Raw_EverParse_initial_byte_t_CBOR_Spec_Raw_EverParse_long_argument(header t)
+dsnd__CBOR_Spec_Raw_SEParse_initial_byte_t_CBOR_Spec_Raw_SEParse_long_argument(header t)
 {
   return
-    __proj__Mkdtuple2__item___2__CBOR_Spec_Raw_EverParse_initial_byte_t_CBOR_Spec_Raw_EverParse_long_argument(t);
+    __proj__Mkdtuple2__item___2__CBOR_Spec_Raw_SEParse_initial_byte_t_CBOR_Spec_Raw_SEParse_long_argument(t);
 }
 
 static size_t write_header(header x, Pulse_Lib_Slice_slice__uint8_t out, size_t offset)
 {
   initial_byte_t
-  xh1 = dfst__CBOR_Spec_Raw_EverParse_initial_byte_t_CBOR_Spec_Raw_EverParse_long_argument(x);
+  xh1 = dfst__CBOR_Spec_Raw_SEParse_initial_byte_t_CBOR_Spec_Raw_SEParse_long_argument(x);
   size_t pos_ = offset + (size_t)1U;
   op_Array_Assignment__uint8_t(out,
     pos_ - (size_t)1U,
     set_bitfield_gen8(set_bitfield_gen8(0U, 0U, 5U, xh1.additional_info), 5U, 8U, xh1.major_type));
   size_t res1 = pos_;
   long_argument
-  x2_ = dsnd__CBOR_Spec_Raw_EverParse_initial_byte_t_CBOR_Spec_Raw_EverParse_long_argument(x);
+  x2_ = dsnd__CBOR_Spec_Raw_SEParse_initial_byte_t_CBOR_Spec_Raw_SEParse_long_argument(x);
   if (xh1.additional_info == ADDITIONAL_INFO_LONG_ARGUMENT_8_BITS)
     if (xh1.major_type == CBOR_MAJOR_TYPE_SIMPLE_VALUE)
     {
@@ -2766,7 +2766,7 @@ static size_t write_header(header x, Pulse_Lib_Slice_slice__uint8_t out, size_t 
 static bool size_header(header x, size_t *out)
 {
   initial_byte_t
-  xh1 = dfst__CBOR_Spec_Raw_EverParse_initial_byte_t_CBOR_Spec_Raw_EverParse_long_argument(x);
+  xh1 = dfst__CBOR_Spec_Raw_SEParse_initial_byte_t_CBOR_Spec_Raw_SEParse_long_argument(x);
   size_t capacity = *out;
   bool ite;
   if (capacity < (size_t)1U)
@@ -2778,7 +2778,7 @@ static bool size_header(header x, size_t *out)
   }
   if (ite)
   {
-    dsnd__CBOR_Spec_Raw_EverParse_initial_byte_t_CBOR_Spec_Raw_EverParse_long_argument(x);
+    dsnd__CBOR_Spec_Raw_SEParse_initial_byte_t_CBOR_Spec_Raw_SEParse_long_argument(x);
     if (xh1.additional_info == ADDITIONAL_INFO_LONG_ARGUMENT_8_BITS)
     {
       size_t capacity = *out;

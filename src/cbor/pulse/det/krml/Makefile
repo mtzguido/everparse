@@ -1,12 +1,12 @@
 all: extract
 
-EVERPARSE_SRC_PATH = $(realpath ../../../..)
-SRC_DIRS += $(EVERPARSE_SRC_PATH)/cbor/pulse
-INCLUDE_PATHS += $(EVERPARSE_SRC_PATH)/cbor/spec $(EVERPARSE_SRC_PATH)/cbor/spec/raw $(EVERPARSE_SRC_PATH)/cbor/spec/raw/everparse $(EVERPARSE_SRC_PATH)/cbor/pulse/raw $(EVERPARSE_SRC_PATH)/cbor/pulse/raw/everparse $(EVERPARSE_SRC_PATH)/lowparse $(EVERPARSE_SRC_PATH)/lowparse/pulse
+SEPARSE_SRC_PATH = $(realpath ../../../..)
+SRC_DIRS += $(SEPARSE_SRC_PATH)/cbor/pulse
+INCLUDE_PATHS += $(SEPARSE_SRC_PATH)/cbor/spec $(SEPARSE_SRC_PATH)/cbor/spec/raw $(SEPARSE_SRC_PATH)/cbor/spec/raw/everparse $(SEPARSE_SRC_PATH)/cbor/pulse/raw $(SEPARSE_SRC_PATH)/cbor/pulse/raw/everparse $(SEPARSE_SRC_PATH)/lowparse $(SEPARSE_SRC_PATH)/lowparse/pulse
 
 FSTAR_OPTIONS += --warn_error -342
 FSTAR_OPTIONS += --ext extraction_inline_all
-FSTAR_DEP_OPTIONS := --extract '*,-FStar.Tactics,-FStar.Reflection,-Pulse,-PulseCore,+Pulse.Class,+Pulse.Lib.Slice,-CBOR.Spec,+CBOR.Spec.Constants,+CBOR.Spec.Raw.EverParse,+CBOR.Spec.Raw.Base,+CBOR.Spec.Raw.Optimal'
+FSTAR_DEP_OPTIONS := --extract '*,-FStar.Tactics,-FStar.Reflection,-Pulse,-PulseCore,+Pulse.Class,+Pulse.Lib.Slice,-CBOR.Spec,+CBOR.Spec.Constants,+CBOR.Spec.Raw.SEParse,+CBOR.Spec.Raw.Base,+CBOR.Spec.Raw.Optimal'
 
 ALREADY_CACHED := '*,'
 OUTPUT_DIRECTORY:=extracted
@@ -15,9 +15,9 @@ FSTAR_DEP_FILE := $(OUTPUT_DIRECTORY)/.depend
 C_DIRECTORY:=$(realpath ../c)/extracted
 RUST_DIRECTORY:=rust-extracted
 
-include $(EVERPARSE_SRC_PATH)/pulse.Makefile
-include $(EVERPARSE_SRC_PATH)/everparse.Makefile
-include $(EVERPARSE_SRC_PATH)/common.Makefile
+include $(SEPARSE_SRC_PATH)/pulse.Makefile
+include $(SEPARSE_SRC_PATH)/everparse.Makefile
+include $(SEPARSE_SRC_PATH)/common.Makefile
 
 $(C_DIRECTORY)/CBORDet.c: $(filter-out %CBOR_Pulse_API_Det_Rust.krml,$(ALL_KRML_FILES))
 	mkdir -p $(dir $@)

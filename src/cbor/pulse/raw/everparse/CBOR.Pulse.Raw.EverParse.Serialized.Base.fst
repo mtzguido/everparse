@@ -1,8 +1,8 @@
-module CBOR.Pulse.Raw.EverParse.Serialized.Base
+module CBOR.Pulse.Raw.SEParse.Serialized.Base
 #lang-pulse
 friend CBOR.Pulse.Raw.Format.Match
 
-open CBOR.Pulse.Raw.EverParse.Format
+open CBOR.Pulse.Raw.SEParse.Format
 open LowParse.Pulse.Combinators
 
 module Trade = Pulse.Lib.Trade.Util

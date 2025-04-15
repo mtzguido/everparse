@@ -4,5 +4,5 @@
 
 (package
   (name evercddl)
-  (synopsis "The EverParse CDDL parser generator")
+  (synopsis "The SEParse CDDL parser generator")
 )

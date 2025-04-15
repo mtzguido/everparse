@@ -1,16 +1,16 @@
 all: verify test
 
-EVERPARSE_SRC_PATH = $(realpath ../../../../..)
-INCLUDE_PATHS += $(EVERPARSE_SRC_PATH)/cbor/spec $(EVERPARSE_SRC_PATH)/cbor/pulse
+SEPARSE_SRC_PATH = $(realpath ../../../../..)
+INCLUDE_PATHS += $(SEPARSE_SRC_PATH)/cbor/spec $(SEPARSE_SRC_PATH)/cbor/pulse
 ALREADY_CACHED := *,-CBORTest,
 OUTPUT_DIRECTORY:=extracted
 CBORDET_PATH := $(realpath ../../c)
 
 CFLAGS += -I $(CBORDET_PATH)
 
-include $(EVERPARSE_SRC_PATH)/karamel.Makefile
-include $(EVERPARSE_SRC_PATH)/pulse.Makefile
-include $(EVERPARSE_SRC_PATH)/common.Makefile
+include $(SEPARSE_SRC_PATH)/karamel.Makefile
+include $(SEPARSE_SRC_PATH)/pulse.Makefile
+include $(SEPARSE_SRC_PATH)/common.Makefile
 
 .PHONY: extract test
 

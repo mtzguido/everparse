@@ -1,15 +1,15 @@
 all: CBORDetTest
 
-EVERPARSE_SRC_PATH = $(realpath ../../../../..)
+SEPARSE_SRC_PATH = $(realpath ../../../../..)
 
-#EVERPARSE_LIB_PATH = $(realpath $(EVERPARSE_SRC_PATH)/..)/lib/evercbor
-#EVERPARSE_INCLUDE_PATH = $(realpath $(EVERPARSE_SRC_PATH)/..)/include/evercbor
-EVERPARSE_LIB_PATH = $(realpath ..)
-EVERPARSE_INCLUDE_PATH = $(realpath ..)
+#SEPARSE_LIB_PATH = $(realpath $(SEPARSE_SRC_PATH)/..)/lib/evercbor
+#SEPARSE_INCLUDE_PATH = $(realpath $(SEPARSE_SRC_PATH)/..)/include/evercbor
+SEPARSE_LIB_PATH = $(realpath ..)
+SEPARSE_INCLUDE_PATH = $(realpath ..)
 
-include $(EVERPARSE_SRC_PATH)/karamel.Makefile
+include $(SEPARSE_SRC_PATH)/karamel.Makefile
 
-CFLAGS += -Werror -I $(EVERPARSE_INCLUDE_PATH)
+CFLAGS += -Werror -I $(SEPARSE_INCLUDE_PATH)
 
 .PHONY: all
 
@@ -26,6 +26,6 @@ $(OBJ_FILES): %.o: %.c
 # CBORDetTest.c: gen/GenCBORDetTest.ml
 # 	./gen/CBORDetTest.sh
 
-#CBORDetTest.exe: CBORDetTest.o $(EVERPARSE_LIB_PATH)/evercbor.a
-CBORDetTest.exe: $(OBJ_FILES) $(EVERPARSE_LIB_PATH)/CBORDet.o
+#CBORDetTest.exe: CBORDetTest.o $(SEPARSE_LIB_PATH)/evercbor.a
+CBORDetTest.exe: $(OBJ_FILES) $(SEPARSE_LIB_PATH)/CBORDet.o
 	$(CC) -o CBORDetTest.exe $^

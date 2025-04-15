@@ -3,7 +3,7 @@ module CBOR.Pulse.Raw.Format.Compare
 friend CBOR.Pulse.Raw.Format.Match
 friend CBOR.Spec.Raw.Format
 module Bytes = CBOR.Pulse.Raw.Compare.Bytes
-module F = CBOR.Spec.Raw.EverParse
+module F = CBOR.Spec.Raw.SEParse
 module VCList = LowParse.Spec.VCList
 
 #set-options "--print_implicits"
@@ -38,17 +38,17 @@ ensures
   (* tedious folding/unfolding, desperately need an "unfold all" that's universe polymorphic *)
   unfold
     LowParse.Pulse.Base.pts_to_serialized
-      CBOR.Spec.Raw.EverParse.serialize_raw_data_item c1.cbor_serialized_payload #(pm1 `perm_mul` c1.cbor_serialized_perm) (Tagged?.v r1);
+      CBOR.Spec.Raw.SEParse.serialize_raw_data_item c1.cbor_serialized_payload #(pm1 `perm_mul` c1.cbor_serialized_perm) (Tagged?.v r1);
   unfold
     LowParse.Pulse.Base.pts_to_serialized
-      CBOR.Spec.Raw.EverParse.serialize_raw_data_item c2.cbor_serialized_payload #(pm2 `perm_mul` c2.cbor_serialized_perm) (Tagged?.v r2);
+      CBOR.Spec.Raw.SEParse.serialize_raw_data_item c2.cbor_serialized_payload #(pm2 `perm_mul` c2.cbor_serialized_perm) (Tagged?.v r2);
   let res = Bytes.lex_compare_bytes c1.cbor_serialized_payload c2.cbor_serialized_payload;
   fold
     LowParse.Pulse.Base.pts_to_serialized
-      CBOR.Spec.Raw.EverParse.serialize_raw_data_item c1.cbor_serialized_payload #(pm1 `perm_mul` c1.cbor_serialized_perm) (Tagged?.v r1);
+      CBOR.Spec.Raw.SEParse.serialize_raw_data_item c1.cbor_serialized_payload #(pm1 `perm_mul` c1.cbor_serialized_perm) (Tagged?.v r1);
   fold
     LowParse.Pulse.Base.pts_to_serialized
-      CBOR.Spec.Raw.EverParse.serialize_raw_data_item c2.cbor_serialized_payload #(pm2 `perm_mul` c2.cbor_serialized_perm) (Tagged?.v r2);
+      CBOR.Spec.Raw.SEParse.serialize_raw_data_item c2.cbor_serialized_payload #(pm2 `perm_mul` c2.cbor_serialized_perm) (Tagged?.v r2);
   fold (cbor_match_serialized_payload_tagged c2.cbor_serialized_payload (pm2 `perm_mul` c2.cbor_serialized_perm) (Tagged?.v r2));
   fold (cbor_match_serialized_payload_tagged c1.cbor_serialized_payload (pm1 `perm_mul` c1.cbor_serialized_perm) (Tagged?.v r1));
   fold (cbor_match_serialized_tagged c1 pm1 r1);
@@ -84,23 +84,23 @@ ensures
   cbor_compare_correct r1 r2;
   F.serialized_lex_compare_array_aux (Array?.len r1) (Array?.v r1) (Array?.len r2) (Array?.v r2);
   unfold (LowParse.Pulse.Base.pts_to_serialized
-           (VCList.serialize_nlist (UInt64.v (Array?.len r1).value) CBOR.Spec.Raw.EverParse.serialize_raw_data_item)
+           (VCList.serialize_nlist (UInt64.v (Array?.len r1).value) CBOR.Spec.Raw.SEParse.serialize_raw_data_item)
            c1.cbor_serialized_payload
            #(pm1 `perm_mul` c1.cbor_serialized_perm)
            (Array?.v r1));
   unfold (LowParse.Pulse.Base.pts_to_serialized
-           (VCList.serialize_nlist (UInt64.v (Array?.len r2).value) CBOR.Spec.Raw.EverParse.serialize_raw_data_item)
+           (VCList.serialize_nlist (UInt64.v (Array?.len r2).value) CBOR.Spec.Raw.SEParse.serialize_raw_data_item)
            c2.cbor_serialized_payload
            #(pm2 `perm_mul` c2.cbor_serialized_perm)
            (Array?.v r2));
   let res = Bytes.lex_compare_bytes c1.cbor_serialized_payload c2.cbor_serialized_payload;
   fold (LowParse.Pulse.Base.pts_to_serialized
-           (VCList.serialize_nlist (UInt64.v (Array?.len r2).value) CBOR.Spec.Raw.EverParse.serialize_raw_data_item)
+           (VCList.serialize_nlist (UInt64.v (Array?.len r2).value) CBOR.Spec.Raw.SEParse.serialize_raw_data_item)
            c2.cbor_serialized_payload
            #(pm2 `perm_mul` c2.cbor_serialized_perm)
            (Array?.v r2));
   fold (LowParse.Pulse.Base.pts_to_serialized
-           (VCList.serialize_nlist (UInt64.v (Array?.len r1).value) CBOR.Spec.Raw.EverParse.serialize_raw_data_item)
+           (VCList.serialize_nlist (UInt64.v (Array?.len r1).value) CBOR.Spec.Raw.SEParse.serialize_raw_data_item)
            c1.cbor_serialized_payload
            #(pm1 `perm_mul` c1.cbor_serialized_perm)
            (Array?.v r1));
@@ -141,18 +141,18 @@ ensures
   (* yikes *)
   unfold (LowParse.Pulse.Base.pts_to_serialized
            (VCList.serialize_nlist (UInt64.v (Map?.len r1).value)
-             (CBOR.Spec.Raw.EverParse.serialize_raw_data_item
+             (CBOR.Spec.Raw.SEParse.serialize_raw_data_item
               `LowParse.Spec.Combinators.serialize_nondep_then`
-              CBOR.Spec.Raw.EverParse.serialize_raw_data_item)
+              CBOR.Spec.Raw.SEParse.serialize_raw_data_item)
            )
            c1.cbor_serialized_payload
            #(pm1 `perm_mul` c1.cbor_serialized_perm)
            (Map?.v r1));
   unfold (LowParse.Pulse.Base.pts_to_serialized
            (VCList.serialize_nlist (UInt64.v (Map?.len r2).value)
-             (CBOR.Spec.Raw.EverParse.serialize_raw_data_item
+             (CBOR.Spec.Raw.SEParse.serialize_raw_data_item
               `LowParse.Spec.Combinators.serialize_nondep_then`
-              CBOR.Spec.Raw.EverParse.serialize_raw_data_item)
+              CBOR.Spec.Raw.SEParse.serialize_raw_data_item)
            )
            c2.cbor_serialized_payload
            #(pm2 `perm_mul` c2.cbor_serialized_perm)
@@ -160,18 +160,18 @@ ensures
   let res = Bytes.lex_compare_bytes c1.cbor_serialized_payload c2.cbor_serialized_payload;
   fold (LowParse.Pulse.Base.pts_to_serialized
            (VCList.serialize_nlist (UInt64.v (Map?.len r2).value)
-             (CBOR.Spec.Raw.EverParse.serialize_raw_data_item
+             (CBOR.Spec.Raw.SEParse.serialize_raw_data_item
               `LowParse.Spec.Combinators.serialize_nondep_then`
-              CBOR.Spec.Raw.EverParse.serialize_raw_data_item)
+              CBOR.Spec.Raw.SEParse.serialize_raw_data_item)
            )
            c2.cbor_serialized_payload
            #(pm2 `perm_mul` c2.cbor_serialized_perm)
            (Map?.v r2));
   fold (LowParse.Pulse.Base.pts_to_serialized
            (VCList.serialize_nlist (UInt64.v (Map?.len r1).value)
-             (CBOR.Spec.Raw.EverParse.serialize_raw_data_item
+             (CBOR.Spec.Raw.SEParse.serialize_raw_data_item
               `LowParse.Spec.Combinators.serialize_nondep_then`
-              CBOR.Spec.Raw.EverParse.serialize_raw_data_item)
+              CBOR.Spec.Raw.SEParse.serialize_raw_data_item)
            )
            c1.cbor_serialized_payload
            #(pm1 `perm_mul` c1.cbor_serialized_perm)

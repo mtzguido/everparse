@@ -1,4 +1,4 @@
-module CBOR.Pulse.Raw.EverParse.Format
+module CBOR.Pulse.Raw.SEParse.Format
 #lang-pulse
 open LowParse.Pulse.Int
 open LowParse.Pulse.BitSum
@@ -649,7 +649,7 @@ let validate_leaf_content_seq'
         )
         (LowParse.Spec.SeqBytes.serialize_lseq_bytes (SZ.v n))
         _
-        (CBOR.Pulse.Raw.EverParse.UTF8.impl_lseq_utf8_correct (get_header_major_type h) n)
+        (CBOR.Pulse.Raw.SEParse.UTF8.impl_lseq_utf8_correct (get_header_major_type h) n)
       )
       (LeafContentSeq ())
     )

@@ -3,7 +3,7 @@ module CBOR.Pulse.Raw.Format.Serialize
 open Pulse.Lib.Pervasives
 friend CBOR.Spec.Raw.Format
 friend CBOR.Pulse.Raw.Format.Match
-open CBOR.Spec.Raw.EverParse
+open CBOR.Spec.Raw.SEParse
 open LowParse.Spec.Base
 open LowParse.Pulse.Base
 

@@ -1,5 +1,5 @@
-ifeq (,$(EVERPARSE_SRC_PATH))
-  $(error "EVERPARSE_SRC_PATH must be set to the absolute path of the src/ subdirectory of the EverParse repository")
+ifeq (,$(SEPARSE_SRC_PATH))
+  $(error "SEPARSE_SRC_PATH must be set to the absolute path of the src/ subdirectory of the SEParse repository")
 endif
 
 ifeq (,$(PULSE_HOME))
