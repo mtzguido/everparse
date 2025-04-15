@@ -427,7 +427,6 @@ val is_weaker_than_correct
   (requires (parser_kind_prop k2 f /\ k1 `is_weaker_than` k2))
   (ensures (parser_kind_prop k1 f))
 
-(* AR: see bug#1349 *)
 unfold let coerce_to_bare_parser (t:Type) (k2:parser_kind) (p:parser k2 t)
   :Tot (bare_parser t) = p
 

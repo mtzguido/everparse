@@ -21,7 +21,7 @@ type bitsum'
     bitsum' cl bitsum'_size
 | BitSum' :
     (key: eqtype) ->
-    (key_size: nat { key_size > 0 /\ key_size <= bitsum'_size /\ bitsum'_size <= tot }) -> // key_size made positive because F* cannot prove that (payload _) is a smaller term wrt. << without FStar.WellFounded.axiom1_dep //NS: TODO: please check this comment
+    (key_size: nat { key_size > 0 /\ key_size <= bitsum'_size /\ bitsum'_size <= tot }) -> // key_size made positive because F* cannot prove that (payload _) is a smaller term wrt. << without FStar.WellFounded.axiom1_dep //: TODO: please check this comment
     (e: enum key (bitfield cl key_size)) ->
     (payload: (enum_key e -> Tot (bitsum' cl (bitsum'_size - key_size)))) ->
     bitsum' cl bitsum'_size

@@ -1076,7 +1076,7 @@ let dep_maybe_enum_destr_cons
     ()
   in
   fun (x: repr { maybe_enum_key_of_repr_not_in e l1 x } ) ->
-    //NS: y is linear in the continuation after erasure; inline it
+    //: y is linear in the continuation after erasure; inline it
     [@inline_let]
     let y : v (maybe_enum_key_of_repr e x) =
       v_if
@@ -1115,7 +1115,7 @@ let dep_maybe_enum_destr_nil
     list_rev_map snd l1;
     L.rev_mem (L.map snd l1) x;
     assert (Unknown x == maybe_enum_key_of_repr e x);
-    //NS: y is linear in the continuation after erasure
+    //: y is linear in the continuation after erasure
     [@inline_let]
     let y : v (maybe_enum_key_of_repr e x) = f (Unknown x) in
     [@inline_let]
