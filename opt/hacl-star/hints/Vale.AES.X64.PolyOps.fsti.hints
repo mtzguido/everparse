@@ -1,0 +1,77 @@
+[
+  "8b4868dd56be4cabe0922028307b8551",
+  [
+    [
+      "Vale.AES.X64.PolyOps.va_quick_VPolyAdd",
+      1,
+      1,
+      0,
+      [
+        "@MaxIFuel_assumption", "@query",
+        "fuel_guarded_inversion_FStar.Pervasives.Native.tuple3"
+      ],
+      0,
+      "1f7ccac49d8d74b0faf7315652277082"
+    ],
+    [
+      "Vale.AES.X64.PolyOps.va_quick_PolyAnd",
+      1,
+      1,
+      0,
+      [
+        "@MaxIFuel_assumption", "@query",
+        "fuel_guarded_inversion_FStar.Pervasives.Native.tuple3"
+      ],
+      0,
+      "b8c808864daef017f73532e4f10784be"
+    ],
+    [
+      "Vale.AES.X64.PolyOps.va_quick_VHigh64ToLow",
+      1,
+      1,
+      0,
+      [
+        "@MaxIFuel_assumption", "@query",
+        "fuel_guarded_inversion_FStar.Pervasives.Native.tuple3"
+      ],
+      0,
+      "04ea6ecb15d6cb99552237fab9cf25b7"
+    ],
+    [
+      "Vale.AES.X64.PolyOps.va_quick_VLow64ToHigh",
+      1,
+      1,
+      0,
+      [
+        "@MaxIFuel_assumption", "@query",
+        "fuel_guarded_inversion_FStar.Pervasives.Native.tuple3"
+      ],
+      0,
+      "dfd66c98978faba46b891a1466ce49ad"
+    ],
+    [
+      "Vale.AES.X64.PolyOps.va_quick_VSwap",
+      1,
+      1,
+      0,
+      [
+        "@MaxIFuel_assumption", "@query",
+        "fuel_guarded_inversion_FStar.Pervasives.Native.tuple3"
+      ],
+      0,
+      "ee4b6a9fc0a1c3b9de2b91fd1abd96ce"
+    ],
+    [
+      "Vale.AES.X64.PolyOps.va_quick_VPolyMul",
+      1,
+      1,
+      0,
+      [
+        "@MaxIFuel_assumption", "@query",
+        "fuel_guarded_inversion_FStar.Pervasives.Native.tuple3"
+      ],
+      0,
+      "6b69e7099fec44acea98665ad3f8df5e"
+    ]
+  ]
+]

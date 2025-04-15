@@ -1,0 +1,127 @@
+[
+  "c742e62423eb1ad63b4839774181865d",
+  [
+    [
+      "Vale.PPC64LE.State.coerce",
+      1,
+      1,
+      0,
+      [
+        "@MaxIFuel_assumption", "@query",
+        "refinement_interpretation_Tm_refine_754b00004f4a881ff74d076ab276dfe1"
+      ],
+      0,
+      "93ae8f8f60702a0f96930c4cb92cd9e8"
+    ],
+    [
+      "Vale.PPC64LE.State.eval_mem",
+      1,
+      1,
+      0,
+      [
+        "@MaxIFuel_assumption", "@query",
+        "function_token_typing_Vale.PPC64LE.State.same_heap_types",
+        "refinement_interpretation_Tm_refine_1c27afc834d559c90ed8939585279b1e"
+      ],
+      0,
+      "fc0efefd9897cf952d21f0f290ddffcb"
+    ],
+    [
+      "Vale.PPC64LE.State.eval_cmp_opr",
+      1,
+      1,
+      1,
+      [
+        "@MaxIFuel_assumption", "@query",
+        "disc_equation_Vale.PPC64LE.Machine_s.CImm",
+        "disc_equation_Vale.PPC64LE.Machine_s.CReg",
+        "fuel_guarded_inversion_Vale.PPC64LE.Machine_s.cmp_opr",
+        "projection_inverse_BoxBool_proj_0"
+      ],
+      0,
+      "a5d7ae34fa6d39e2901bd98ba908a1a8"
+    ],
+    [
+      "Vale.PPC64LE.State.update_reg",
+      1,
+      1,
+      0,
+      [
+        "@MaxIFuel_assumption", "@query", "equation_Prims.eqtype",
+        "equation_Vale.PPC64LE.Machine_s.reg",
+        "function_token_typing_Prims.int",
+        "haseqTm_refine_10933b2b7d83031ac55f8752406bdc16",
+        "refinement_interpretation_Tm_refine_414d0a9f578ab0048252f8c8f552b99f"
+      ],
+      0,
+      "67f3e8efba6104ebd5e38802234d7346"
+    ],
+    [
+      "Vale.PPC64LE.State.update_vec",
+      1,
+      1,
+      0,
+      [
+        "@MaxIFuel_assumption", "@query", "equation_Prims.eqtype",
+        "equation_Vale.PPC64LE.Machine_s.vec",
+        "function_token_typing_Prims.int",
+        "haseqTm_refine_10933b2b7d83031ac55f8752406bdc16",
+        "refinement_interpretation_Tm_refine_414d0a9f578ab0048252f8c8f552b99f"
+      ],
+      0,
+      "9d31bf3653a189ce1b2901f0e6690b16"
+    ],
+    [
+      "Vale.PPC64LE.State.valid_maddr",
+      1,
+      1,
+      0,
+      [
+        "@MaxIFuel_assumption", "@query",
+        "function_token_typing_Vale.PPC64LE.State.same_heap_types",
+        "refinement_interpretation_Tm_refine_1c27afc834d559c90ed8939585279b1e"
+      ],
+      0,
+      "540fea29d515177992c4803d71240e2d"
+    ],
+    [
+      "Vale.PPC64LE.State.valid_mem128",
+      1,
+      1,
+      0,
+      [
+        "@MaxIFuel_assumption", "@query",
+        "function_token_typing_Vale.PPC64LE.State.same_heap_types",
+        "refinement_interpretation_Tm_refine_1c27afc834d559c90ed8939585279b1e"
+      ],
+      0,
+      "db954fdab63a961cbb0357e5379cc507"
+    ],
+    [
+      "Vale.PPC64LE.State.state_eta",
+      1,
+      1,
+      0,
+      [
+        "@MaxIFuel_assumption", "@query",
+        "function_token_typing_Vale.PPC64LE.State.same_heap_types",
+        "refinement_interpretation_Tm_refine_1c27afc834d559c90ed8939585279b1e"
+      ],
+      0,
+      "f1ae7cff968543754d071bd3f93da9ce"
+    ],
+    [
+      "Vale.PPC64LE.State.state_eq",
+      1,
+      1,
+      0,
+      [
+        "@MaxIFuel_assumption", "@query",
+        "function_token_typing_Vale.PPC64LE.State.same_heap_types",
+        "refinement_interpretation_Tm_refine_1c27afc834d559c90ed8939585279b1e"
+      ],
+      0,
+      "9acc38b45d892fd1832912dea4d16307"
+    ]
+  ]
+]

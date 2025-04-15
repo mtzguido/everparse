@@ -1,0 +1,316 @@
+[
+  "dd1ba4fc6b665fe1c6157dada189243f",
+  [
+    [
+      "Spec.Ed25519.PointOps.modp_sqrt_m1",
+      1,
+      0,
+      0,
+      [
+        "@MaxFuel_assumption", "@MaxIFuel_assumption",
+        "@fuel_correspondence_Prims.pow2.fuel_instrumented", "@query",
+        "equation_Prims.nat", "equation_Prims.pos",
+        "equation_Spec.Curve25519.prime", "int_typing",
+        "lemma_Spec.Curve25519.Lemmas.lemma_prime_value",
+        "primitive_Prims.op_Division", "primitive_Prims.op_Subtraction",
+        "projection_inverse_BoxInt_proj_0",
+        "refinement_interpretation_Tm_refine_542f9d4f129664613f2483a6c88bc7c2",
+        "refinement_interpretation_Tm_refine_774ba3f728d91ead8ef40be66c9802e5",
+        "typing_Spec.Curve25519.prime"
+      ],
+      0,
+      "c60fc3e306066c4793517c9062468021"
+    ],
+    [
+      "Spec.Ed25519.PointOps.g_x",
+      1,
+      0,
+      0,
+      [
+        "@MaxFuel_assumption", "@MaxIFuel_assumption",
+        "@fuel_correspondence_Prims.pow2.fuel_instrumented", "@query",
+        "equation_Prims.nat", "equation_Spec.Curve25519.prime", "int_typing",
+        "lemma_Spec.Curve25519.Lemmas.lemma_prime_value",
+        "projection_inverse_BoxInt_proj_0",
+        "refinement_interpretation_Tm_refine_542f9d4f129664613f2483a6c88bc7c2"
+      ],
+      0,
+      "8dfa6861af0dad10985f46871ee286cb"
+    ],
+    [
+      "Spec.Ed25519.PointOps.g_y",
+      1,
+      0,
+      0,
+      [
+        "@MaxFuel_assumption", "@MaxIFuel_assumption",
+        "@fuel_correspondence_Prims.pow2.fuel_instrumented", "@query",
+        "equation_Prims.nat", "equation_Spec.Curve25519.prime", "int_typing",
+        "lemma_Spec.Curve25519.Lemmas.lemma_prime_value",
+        "projection_inverse_BoxInt_proj_0",
+        "refinement_interpretation_Tm_refine_542f9d4f129664613f2483a6c88bc7c2"
+      ],
+      0,
+      "087b010b34895f04dc43a7cea2566970"
+    ],
+    [
+      "Spec.Ed25519.PointOps.g",
+      1,
+      0,
+      0,
+      [
+        "@MaxFuel_assumption", "@MaxIFuel_assumption",
+        "@fuel_correspondence_Prims.pow2.fuel_instrumented", "@query",
+        "equation_Prims.nat", "equation_Spec.Curve25519.prime", "int_typing",
+        "lemma_Spec.Curve25519.Lemmas.lemma_prime_value",
+        "projection_inverse_BoxInt_proj_0",
+        "refinement_interpretation_Tm_refine_542f9d4f129664613f2483a6c88bc7c2"
+      ],
+      0,
+      "d976ced619ada8a3a25e48f6860fe129"
+    ],
+    [
+      "Spec.Ed25519.PointOps.is_on_curve",
+      1,
+      0,
+      0,
+      [
+        "@MaxFuel_assumption", "@MaxIFuel_assumption",
+        "@fuel_correspondence_Prims.pow2.fuel_instrumented", "@query",
+        "equation_Prims.nat", "equation_Spec.Curve25519.prime", "int_typing",
+        "lemma_Spec.Curve25519.Lemmas.lemma_prime_value",
+        "projection_inverse_BoxInt_proj_0",
+        "refinement_interpretation_Tm_refine_542f9d4f129664613f2483a6c88bc7c2"
+      ],
+      0,
+      "bc36ee57a5289794fecbc109b97524e5"
+    ],
+    [
+      "Spec.Ed25519.PointOps.is_ext",
+      1,
+      0,
+      0,
+      [
+        "@MaxIFuel_assumption", "@query", "equation_Prims.eqtype",
+        "equation_Prims.nat", "equation_Spec.Curve25519.elem",
+        "function_token_typing_Prims.int",
+        "haseqTm_refine_542f9d4f129664613f2483a6c88bc7c2",
+        "haseqTm_refine_c9f318957334bae90e9d8f370d26a655",
+        "refinement_interpretation_Tm_refine_414d0a9f578ab0048252f8c8f552b99f"
+      ],
+      0,
+      "ae94513265c8c61d370538f262bcb12b"
+    ],
+    [
+      "Spec.Ed25519.PointOps.aff_point_add",
+      1,
+      0,
+      0,
+      [
+        "@MaxFuel_assumption", "@MaxIFuel_assumption",
+        "@fuel_correspondence_Prims.pow2.fuel_instrumented", "@query",
+        "equation_Prims.nat", "equation_Spec.Curve25519.prime", "int_typing",
+        "lemma_Spec.Curve25519.Lemmas.lemma_prime_value",
+        "projection_inverse_BoxInt_proj_0",
+        "refinement_interpretation_Tm_refine_542f9d4f129664613f2483a6c88bc7c2"
+      ],
+      0,
+      "0cefcf5ce0a499b136ea1e5de655dd5d"
+    ],
+    [
+      "Spec.Ed25519.PointOps.aff_point_double",
+      1,
+      0,
+      0,
+      [
+        "@MaxFuel_assumption", "@MaxIFuel_assumption",
+        "@fuel_correspondence_Prims.pow2.fuel_instrumented", "@query",
+        "equation_Prims.nat", "equation_Spec.Curve25519.prime", "int_typing",
+        "lemma_Spec.Curve25519.Lemmas.lemma_prime_value",
+        "projection_inverse_BoxInt_proj_0",
+        "refinement_interpretation_Tm_refine_542f9d4f129664613f2483a6c88bc7c2"
+      ],
+      0,
+      "9bce55bf55c89e26b275ae6942dbffe6"
+    ],
+    [
+      "Spec.Ed25519.PointOps.aff_point_negate",
+      1,
+      0,
+      0,
+      [
+        "@MaxFuel_assumption", "@MaxIFuel_assumption",
+        "@fuel_correspondence_Prims.pow2.fuel_instrumented", "@query",
+        "equation_Prims.nat", "equation_Spec.Curve25519.elem",
+        "equation_Spec.Curve25519.prime", "int_typing",
+        "lemma_Spec.Curve25519.Lemmas.lemma_prime_value",
+        "primitive_Prims.op_Modulus", "projection_inverse_BoxInt_proj_0",
+        "refinement_interpretation_Tm_refine_542f9d4f129664613f2483a6c88bc7c2",
+        "refinement_interpretation_Tm_refine_c9f318957334bae90e9d8f370d26a655"
+      ],
+      0,
+      "ff731e0c8104af5d9c6104a4d9770bf5"
+    ],
+    [
+      "Spec.Ed25519.PointOps.point_add",
+      1,
+      0,
+      0,
+      [
+        "@MaxFuel_assumption", "@MaxIFuel_assumption",
+        "@fuel_correspondence_Prims.pow2.fuel_instrumented", "@query",
+        "equation_Prims.nat", "equation_Spec.Curve25519.prime", "int_typing",
+        "lemma_Spec.Curve25519.Lemmas.lemma_prime_value",
+        "projection_inverse_BoxInt_proj_0",
+        "refinement_interpretation_Tm_refine_542f9d4f129664613f2483a6c88bc7c2"
+      ],
+      0,
+      "4fdacce7cf59f2a56f01390512579af5"
+    ],
+    [
+      "Spec.Ed25519.PointOps.point_double",
+      1,
+      0,
+      0,
+      [
+        "@MaxFuel_assumption", "@MaxIFuel_assumption",
+        "@fuel_correspondence_Prims.pow2.fuel_instrumented", "@query",
+        "equation_Prims.nat", "equation_Spec.Curve25519.prime", "int_typing",
+        "lemma_Spec.Curve25519.Lemmas.lemma_prime_value",
+        "projection_inverse_BoxInt_proj_0",
+        "refinement_interpretation_Tm_refine_542f9d4f129664613f2483a6c88bc7c2"
+      ],
+      0,
+      "b5e7dfc1ce978c76473d81d4c17ab6d4"
+    ],
+    [
+      "Spec.Ed25519.PointOps.point_negate",
+      1,
+      0,
+      0,
+      [
+        "@MaxFuel_assumption", "@MaxIFuel_assumption",
+        "@fuel_correspondence_Prims.pow2.fuel_instrumented", "@query",
+        "equation_Prims.nat", "equation_Spec.Curve25519.elem",
+        "equation_Spec.Curve25519.prime", "int_typing",
+        "lemma_Spec.Curve25519.Lemmas.lemma_prime_value",
+        "primitive_Prims.op_Modulus", "projection_inverse_BoxInt_proj_0",
+        "refinement_interpretation_Tm_refine_542f9d4f129664613f2483a6c88bc7c2",
+        "refinement_interpretation_Tm_refine_c9f318957334bae90e9d8f370d26a655"
+      ],
+      0,
+      "acdb82a8217b383b30ac909fdf5a6a5b"
+    ],
+    [
+      "Spec.Ed25519.PointOps.point_compress",
+      1,
+      0,
+      0,
+      [
+        "@MaxFuel_assumption", "@MaxIFuel_assumption",
+        "@fuel_correspondence_Prims.pow2.fuel_instrumented", "@query",
+        "constructor_distinct_Lib.IntTypes.S16",
+        "constructor_distinct_Lib.IntTypes.S8",
+        "constructor_distinct_Lib.IntTypes.U32",
+        "equality_tok_Lib.IntTypes.U32@tok", "equation_Lib.IntTypes.bits",
+        "equation_Lib.IntTypes.unsigned", "equation_Lib.Sequence.length",
+        "equation_Prims.nat", "equation_Spec.Curve25519.elem",
+        "equation_Spec.Curve25519.fmul",
+        "equation_Spec.Curve25519.op_Star_Percent",
+        "equation_Spec.Curve25519.prime",
+        "equation_Spec.Ed25519.PointOps.finv", "int_typing",
+        "lemma_FStar.UInt.pow2_values",
+        "lemma_Spec.Curve25519.Lemmas.lemma_pow2_256",
+        "lemma_Spec.Curve25519.Lemmas.lemma_prime_value",
+        "primitive_Prims.op_Addition", "primitive_Prims.op_Modulus",
+        "primitive_Prims.op_Multiply", "primitive_Prims.op_Subtraction",
+        "projection_inverse_BoxInt_proj_0",
+        "refinement_interpretation_Tm_refine_542f9d4f129664613f2483a6c88bc7c2",
+        "refinement_interpretation_Tm_refine_c9f318957334bae90e9d8f370d26a655",
+        "typing_Lib.IntTypes.bits", "typing_Spec.Curve25519.op_Star_Percent",
+        "typing_Spec.Ed25519.PointOps.finv",
+        "typing_tok_Lib.IntTypes.U32@tok"
+      ],
+      0,
+      "10e28fcea55f637b5ee05674a294d776"
+    ],
+    [
+      "Spec.Ed25519.PointOps.recover_x",
+      1,
+      0,
+      0,
+      [
+        "@MaxFuel_assumption", "@MaxIFuel_assumption",
+        "@fuel_correspondence_Prims.pow2.fuel_instrumented", "@query",
+        "equation_Prims.eqtype", "equation_Prims.nat",
+        "equation_Spec.Curve25519.elem", "equation_Spec.Curve25519.prime",
+        "equation_Spec.Ed25519.PointOps.d",
+        "function_token_typing_Prims.int",
+        "haseqTm_refine_542f9d4f129664613f2483a6c88bc7c2",
+        "haseqTm_refine_c9f318957334bae90e9d8f370d26a655", "int_typing",
+        "lemma_Spec.Curve25519.Lemmas.lemma_prime_value",
+        "primitive_Prims.op_Addition", "primitive_Prims.op_Division",
+        "primitive_Prims.op_GreaterThanOrEqual",
+        "primitive_Prims.op_Modulus", "projection_inverse_BoxInt_proj_0",
+        "refinement_interpretation_Tm_refine_414d0a9f578ab0048252f8c8f552b99f",
+        "refinement_interpretation_Tm_refine_542f9d4f129664613f2483a6c88bc7c2",
+        "refinement_interpretation_Tm_refine_c9f318957334bae90e9d8f370d26a655",
+        "typing_Spec.Ed25519.PointOps.d"
+      ],
+      0,
+      "b5714cc2cf927ef924af0105bee234da"
+    ],
+    [
+      "Spec.Ed25519.PointOps.point_decompress",
+      1,
+      0,
+      0,
+      [
+        "@MaxIFuel_assumption", "@query",
+        "constructor_distinct_FStar.Pervasives.Native.None",
+        "constructor_distinct_FStar.Pervasives.Native.Some",
+        "equation_Lib.Sequence.length", "equation_Lib.Sequence.lseq",
+        "equation_Prims.nonzero", "equation_Spec.Curve25519.elem",
+        "equation_Spec.Ed25519.PointOps.recover_x", "int_inversion",
+        "primitive_Prims.op_GreaterThanOrEqual",
+        "primitive_Prims.op_Modulus", "primitive_Prims.op_Multiply",
+        "projection_inverse_BoxInt_proj_0",
+        "refinement_interpretation_Tm_refine_0766302b68bb44ab7aff8c4d8be0b46f",
+        "refinement_interpretation_Tm_refine_d8d83307254a8900dd20598654272e42"
+      ],
+      0,
+      "c7cf889f16e57503ac74ce5a989b2c6f"
+    ],
+    [
+      "Spec.Ed25519.PointOps.point_decompress",
+      2,
+      0,
+      0,
+      [
+        "@MaxFuel_assumption", "@MaxIFuel_assumption",
+        "@fuel_correspondence_Prims.pow2.fuel_instrumented", "@query",
+        "equation_Prims.nat", "int_typing", "lemma_FStar.UInt.pow2_values",
+        "primitive_Prims.op_Subtraction", "projection_inverse_BoxInt_proj_0",
+        "refinement_interpretation_Tm_refine_542f9d4f129664613f2483a6c88bc7c2"
+      ],
+      0,
+      "2ba439d4626ec5fbeda1b447403faf56"
+    ],
+    [
+      "Spec.Ed25519.PointOps.point_equal",
+      1,
+      0,
+      0,
+      [
+        "@MaxIFuel_assumption", "@query", "equation_Prims.eqtype",
+        "equation_Prims.nat", "equation_Spec.Curve25519.elem",
+        "function_token_typing_Prims.int",
+        "haseqTm_refine_542f9d4f129664613f2483a6c88bc7c2",
+        "haseqTm_refine_c9f318957334bae90e9d8f370d26a655",
+        "refinement_interpretation_Tm_refine_414d0a9f578ab0048252f8c8f552b99f"
+      ],
+      0,
+      "0af0edd9e2b3355b635c8eb80409775d"
+    ]
+  ]
+]

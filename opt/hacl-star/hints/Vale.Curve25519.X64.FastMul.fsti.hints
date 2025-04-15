@@ -1,0 +1,133 @@
+[
+  "c8e22b0ea1bb3129aea7e4ec4e9a3d8b",
+  [
+    [
+      "Vale.Curve25519.X64.FastMul.va_lemma_Fast_multiply",
+      1,
+      1,
+      0,
+      [
+        "@MaxIFuel_assumption", "@query", "equation_Prims.nat",
+        "projection_inverse_BoxInt_proj_0",
+        "refinement_interpretation_Tm_refine_542f9d4f129664613f2483a6c88bc7c2"
+      ],
+      0,
+      "59ab73a2d6b4fd6920dae3056ee6be2f"
+    ],
+    [
+      "Vale.Curve25519.X64.FastMul.va_wp_Fast_multiply",
+      1,
+      1,
+      0,
+      [
+        "@MaxIFuel_assumption", "@query", "equation_Prims.nat",
+        "projection_inverse_BoxInt_proj_0",
+        "refinement_interpretation_Tm_refine_542f9d4f129664613f2483a6c88bc7c2"
+      ],
+      0,
+      "a2aaccfe24e07099f76d4661d51fb860"
+    ],
+    [
+      "Vale.Curve25519.X64.FastMul.va_quick_Fast_multiply",
+      1,
+      1,
+      0,
+      [
+        "@MaxIFuel_assumption", "@query",
+        "fuel_guarded_inversion_FStar.Pervasives.Native.tuple3"
+      ],
+      0,
+      "90c59e24dbe9ce07dc5b89af60636972"
+    ],
+    [
+      "Vale.Curve25519.X64.FastMul.va_lemma_Fast_mul_stdcall",
+      1,
+      1,
+      0,
+      [
+        "@MaxIFuel_assumption", "@query", "bool_inversion", "eq2-interp",
+        "equality_tok_Vale.X64.Machine_s.Secret@tok", "equation_Prims.nat",
+        "equation_Vale.Def.Words_s.nat64", "equation_Vale.Def.Words_s.natN",
+        "equation_Vale.X64.Decls.va_require_total",
+        "equation_Vale.X64.Decls.validDstAddrs64",
+        "equation_Vale.X64.Decls.validSrcAddrs64",
+        "equation_Vale.X64.Memory.get_vale_heap",
+        "fuel_guarded_inversion_Vale.X64.State.vale_state",
+        "proj_equation_Vale.X64.State.Mkvale_state_vs_memTaint",
+        "projection_inverse_BoxInt_proj_0",
+        "refinement_interpretation_Tm_refine_2111fb9198de365561cfa31855f8c970",
+        "refinement_interpretation_Tm_refine_542f9d4f129664613f2483a6c88bc7c2",
+        "refinement_interpretation_Tm_refine_c1424615841f28cac7fc34e92b7ff33c"
+      ],
+      0,
+      "c829bf74ffdb5782f7eecb68425510b9"
+    ],
+    [
+      "Vale.Curve25519.X64.FastMul.va_wp_Fast_mul_stdcall",
+      1,
+      1,
+      0,
+      [
+        "@MaxIFuel_assumption", "@query", "equation_Prims.nat",
+        "equation_Vale.Def.Words_s.nat64", "equation_Vale.Def.Words_s.natN",
+        "projection_inverse_BoxInt_proj_0",
+        "refinement_interpretation_Tm_refine_542f9d4f129664613f2483a6c88bc7c2",
+        "refinement_interpretation_Tm_refine_c1424615841f28cac7fc34e92b7ff33c"
+      ],
+      0,
+      "cf535b367a81beaa22d11fa1c99ba421"
+    ],
+    [
+      "Vale.Curve25519.X64.FastMul.va_quick_Fast_mul_stdcall",
+      1,
+      1,
+      0,
+      [
+        "@MaxIFuel_assumption", "@query",
+        "fuel_guarded_inversion_FStar.Pervasives.Native.tuple3"
+      ],
+      0,
+      "140bf2218cef6a17e20e5aabda479bd8"
+    ],
+    [
+      "Vale.Curve25519.X64.FastMul.va_lemma_Fast_mul2_stdcall",
+      1,
+      1,
+      0,
+      [
+        "@MaxIFuel_assumption", "@query", "bool_inversion", "eq2-interp",
+        "equality_tok_Vale.X64.Machine_s.Secret@tok",
+        "equation_Vale.X64.Decls.va_require_total",
+        "equation_Vale.X64.Decls.validDstAddrs64",
+        "equation_Vale.X64.Decls.validSrcAddrs64",
+        "equation_Vale.X64.Memory.get_vale_heap",
+        "fuel_guarded_inversion_Vale.X64.State.vale_state",
+        "proj_equation_Vale.X64.State.Mkvale_state_vs_memTaint",
+        "refinement_interpretation_Tm_refine_12858e97eec0ea4a967ef81772c81ae1"
+      ],
+      0,
+      "bfcc860be65a529d38745fa464f97ae3"
+    ],
+    [
+      "Vale.Curve25519.X64.FastMul.va_wp_Fast_mul2_stdcall",
+      1,
+      1,
+      0,
+      [ "@query" ],
+      0,
+      "6cf4eea0b511486875f180f001d4d40f"
+    ],
+    [
+      "Vale.Curve25519.X64.FastMul.va_quick_Fast_mul2_stdcall",
+      1,
+      1,
+      0,
+      [
+        "@MaxIFuel_assumption", "@query",
+        "fuel_guarded_inversion_FStar.Pervasives.Native.tuple3"
+      ],
+      0,
+      "07a7e63ad625d94bd33f231f7ba42cbd"
+    ]
+  ]
+]
