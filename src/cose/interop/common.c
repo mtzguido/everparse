@@ -12,11 +12,11 @@ void openssl_error_msg(const char *msg) {
 
 typedef Pulse_Lib_Slice_slice__uint8_t bstr;
 
-const COSE_Format_evercddl_int_tags signature1 = 1;
+const COSE_Format_vercdl_int_tags signature1 = 1;
 
-bstr mk_sig_structure(COSE_Format_evercddl_empty_or_serialized_map_pretty protected_headers,
+bstr mk_sig_structure(COSE_Format_vercdl_empty_or_serialized_map_pretty protected_headers,
         bstr aad, bstr payload) {
-    COSE_Format_evercddl_Sig_structure_pretty c = {
+    COSE_Format_vercdl_Sig_structure_pretty c = {
         .context = signature1,
         .body_protected = protected_headers,
         ._x0 = {
@@ -37,8 +37,8 @@ bstr mk_sig_structure(COSE_Format_evercddl_empty_or_serialized_map_pretty protec
     return out;
 }
 
-COSE_Format_evercddl_header_map_pretty empty_sig_headers() {
-    return (COSE_Format_evercddl_header_map_pretty) {
+COSE_Format_vercdl_header_map_pretty empty_sig_headers() {
+    return (COSE_Format_vercdl_header_map_pretty) {
         .intkey1 = { .tag = FStar_Pervasives_Native_None },
         .intkey2 = { .tag = FStar_Pervasives_Native_None },
         .intkey3 = { .tag = FStar_Pervasives_Native_None },
@@ -80,29 +80,29 @@ bstr sign_eddsa(EVP_PKEY *signing_key, const bstr tbs) {
 }
 
 bstr sign1(EVP_PKEY *signing_key,
-        COSE_Format_evercddl_header_map_pretty protected_headers,
-        COSE_Format_evercddl_header_map_pretty unprotected_headers,
+        COSE_Format_vercdl_header_map_pretty protected_headers,
+        COSE_Format_vercdl_header_map_pretty unprotected_headers,
         bstr aad, bstr payload) {
-    protected_headers.intkey1 = (FStar_Pervasives_Native_option__FStar_Pervasives_either_COSE_Format_evercddl_int_pretty_COSE_Format_evercddl_tstr_pretty) {
+    protected_headers.intkey1 = (FStar_Pervasives_Native_option__FStar_Pervasives_either_COSE_Format_vercdl_int_pretty_COSE_Format_vercdl_tstr_pretty) {
         .tag = FStar_Pervasives_Native_Some,
         .v = {
             .tag = COSE_Format_Inl,
             .case_Inl = { // I just hope this is -8 (COSE_ALGORITHM_EDDSA)
-                .tag = COSE_Format_Mkevercddl_int_pretty1,
-                .case_Mkevercddl_int_pretty1 = 7,
+                .tag = COSE_Format_Mkvercdl_int_pretty1,
+                .case_Mkvercdl_int_pretty1 = 7,
             }
         },
     };
-    COSE_Format_evercddl_empty_or_serialized_map_pretty protected_headers_ = {
-        .tag = COSE_Format_Mkevercddl_empty_or_serialized_map_pretty0,
-        .case_Mkevercddl_empty_or_serialized_map_pretty0 = protected_headers,
+    COSE_Format_vercdl_empty_or_serialized_map_pretty protected_headers_ = {
+        .tag = COSE_Format_Mkvercdl_empty_or_serialized_map_pretty0,
+        .case_Mkvercdl_empty_or_serialized_map_pretty0 = protected_headers,
     };
 
     bstr sig_structure = mk_sig_structure(protected_headers_, aad, payload);
     bstr sig = sign_eddsa(signing_key, sig_structure);
     free(sig_structure.elt);
 
-    COSE_Format_evercddl_COSE_Sign1_pretty c = {
+    COSE_Format_vercdl_COSE_Sign1_pretty c = {
         .protected = protected_headers_,
         .unprotected = unprotected_headers,
         .payload = { .tag = COSE_Format_Inl, .case_Inl = payload },
@@ -134,7 +134,7 @@ bool validate(EVP_PKEY *signing_key, bstr tbs, bstr sig) {
 }
 
 bstr verify1(EVP_PKEY *signing_key, bstr aad, bstr msg) {
-    FStar_Pervasives_Native_option___COSE_Format_evercddl_COSE_Sign1_Tagged_pretty___Pulse_Lib_Slice_slice_uint8_t_ parsed_msg =
+    FStar_Pervasives_Native_option___COSE_Format_vercdl_COSE_Sign1_Tagged_pretty___Pulse_Lib_Slice_slice_uint8_t_ parsed_msg =
         COSE_Format_validate_and_parse_COSE_Sign1_Tagged(msg);
     check(parsed_msg.tag);
 
@@ -143,7 +143,7 @@ bstr verify1(EVP_PKEY *signing_key, bstr aad, bstr msg) {
 
     bstr sig = parsed_msg.v.fst.signature;
     
-    COSE_Format_evercddl_empty_or_serialized_map_pretty protected_headers =
+    COSE_Format_vercdl_empty_or_serialized_map_pretty protected_headers =
         parsed_msg.v.fst.protected;
     // TODO check algorithm
   
@@ -157,12 +157,12 @@ bstr verify1(EVP_PKEY *signing_key, bstr aad, bstr msg) {
 }
 
 EVP_PKEY *parse_ed25519_private_key(bstr cose_key) {
-    FStar_Pervasives_Native_option___COSE_Format_evercddl_COSE_Key_OKP_pretty___Pulse_Lib_Slice_slice_uint8_t_
+    FStar_Pervasives_Native_option___COSE_Format_vercdl_COSE_Key_OKP_pretty___Pulse_Lib_Slice_slice_uint8_t_
         parsed_key = COSE_Format_validate_and_parse_COSE_Key_OKP(cose_key);
     check(parsed_key.tag);
     check(parsed_key.v.fst.intkeyneg1.tag == COSE_Format_Inl);
-    check(parsed_key.v.fst.intkeyneg1.case_Inl.tag == COSE_Format_Mkevercddl_int_pretty0);
-    check(parsed_key.v.fst.intkeyneg1.case_Inl.case_Mkevercddl_int_pretty0 == 6);
+    check(parsed_key.v.fst.intkeyneg1.case_Inl.tag == COSE_Format_Mkvercdl_int_pretty0);
+    check(parsed_key.v.fst.intkeyneg1.case_Inl.case_Mkvercdl_int_pretty0 == 6);
     check(parsed_key.v.fst.intkeyneg4.tag);
     check(parsed_key.v.fst.intkeyneg4.v.len == 32);
     EVP_PKEY *pkey;
@@ -171,12 +171,12 @@ EVP_PKEY *parse_ed25519_private_key(bstr cose_key) {
 }
 
 EVP_PKEY *parse_ed25519_public_key(bstr cose_key) {
-    FStar_Pervasives_Native_option___COSE_Format_evercddl_COSE_Key_OKP_pretty___Pulse_Lib_Slice_slice_uint8_t_
+    FStar_Pervasives_Native_option___COSE_Format_vercdl_COSE_Key_OKP_pretty___Pulse_Lib_Slice_slice_uint8_t_
         parsed_key = COSE_Format_validate_and_parse_COSE_Key_OKP(cose_key);
     check(parsed_key.tag);
     check(parsed_key.v.fst.intkeyneg1.tag == COSE_Format_Inl);
-    check(parsed_key.v.fst.intkeyneg1.case_Inl.tag == COSE_Format_Mkevercddl_int_pretty0);
-    check(parsed_key.v.fst.intkeyneg1.case_Inl.case_Mkevercddl_int_pretty0 == 6);
+    check(parsed_key.v.fst.intkeyneg1.case_Inl.tag == COSE_Format_Mkvercdl_int_pretty0);
+    check(parsed_key.v.fst.intkeyneg1.case_Inl.case_Mkvercdl_int_pretty0 == 6);
     check(parsed_key.v.fst.intkeyneg2.tag);
     check(parsed_key.v.fst.intkeyneg2.v.len == 32);
     EVP_PKEY *pkey;

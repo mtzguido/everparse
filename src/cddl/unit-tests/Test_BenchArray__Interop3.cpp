@@ -151,19 +151,19 @@ int main()
     };
 
     /* Validate it, make sure it parses back. */
-    FStar_Pervasives_Native_option___BenchArray_evercddl_map_pretty___Pulse_Lib_Slice_slice_uint8_t_
+    FStar_Pervasives_Native_option___BenchArray_vercdl_map_pretty___Pulse_Lib_Slice_slice_uint8_t_
       m_opt = TIME(BenchArray_validate_and_parse_map(slice), &f);
     assert (m_opt.tag == FStar_Pervasives_Native_Some);
     printf("Parsed %zu bytes\n", m_opt.v.snd.len);
     printf("Original len %zu\n", len);
     assert (m_opt.v.snd.len == 0); /* len is whatever remains */
 
-    BenchArray_evercddl_map_pretty m =  m_opt.v.fst;
+    BenchArray_vercdl_map_pretty m =  m_opt.v.fst;
 
     printf(" >>> VALIDATION BANDWIDTH: %f MB/s\n", len / f / 1e6);
 
     float f2;
-    bool rc = TIME(parse_evercddl(m), &f2);
+    bool rc = TIME(parse_vercdl(m), &f2);
     if (!rc) {
         printf("Parse failed\n");
         exit(1);

@@ -10,8 +10,8 @@ $(KRML_HOME)/krmllib/obj \
 $(PULSE_HOME)/lib/pulse \
 $(SEPARSE_SRC_PATH)/cddl/pulse \
 $(SEPARSE_SRC_PATH)/cddl/tool \
-$(SEPARSE_SRC_PATH)/../lib/evercddl/lib \
-$(SEPARSE_SRC_PATH)/../lib/evercddl/plugin \
+$(SEPARSE_SRC_PATH)/../lib/vercdl/lib \
+$(SEPARSE_SRC_PATH)/../lib/vercdl/plugin \
 ../util \
 ../_output \
 $(PULSE_HOME)/../share/pulse/examples/dice \

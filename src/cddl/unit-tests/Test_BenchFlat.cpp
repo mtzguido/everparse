@@ -27,14 +27,14 @@ uint64_t bigrand() {
     return r ; // % 100000000;
 }
 
-void bench_evercddl () {
+void bench_vercdl () {
     uint8_t *buf = (uint8_t *) malloc(EXPECTED_SIZE);
     Pulse_Lib_Slice_slice__uint8_t slice = {
         .elt = (uint8_t *) buf,
         .len = EXPECTED_SIZE
     };
 
-    BenchFlat_evercddl_record_pretty_s r;
+    BenchFlat_vercdl_record_pretty_s r;
 
     r.f1 = bigrand();
     r.f2 = bigrand();
@@ -55,7 +55,7 @@ void bench_evercddl () {
 
     printf(" >>> EVERCDDL SERIALIZATION OF RECORD TAKES: %f us\n", f * 1e6 / LAPS);
 
-    FStar_Pervasives_Native_option___BenchFlat_evercddl_record_pretty___Pulse_Lib_Slice_slice_uint8_t_
+    FStar_Pervasives_Native_option___BenchFlat_vercdl_record_pretty___Pulse_Lib_Slice_slice_uint8_t_
       rc;
     TIME_void(({
         for (int i = 0; i < LAPS; i++) {
@@ -66,7 +66,7 @@ void bench_evercddl () {
         }
     }), &f);
 
-    BenchFlat_evercddl_record_pretty_s r2;
+    BenchFlat_vercdl_record_pretty_s r2;
  
     r2 = rc.v.fst;
 
@@ -81,7 +81,7 @@ void bench_evercddl () {
     assert (r.f8 == r2.f8);
 }
 
-UsefulBufC qcbor_encode(UsefulBuf buf, BenchFlat_evercddl_record_pretty_s r) {
+UsefulBufC qcbor_encode(UsefulBuf buf, BenchFlat_vercdl_record_pretty_s r) {
     QCBOREncodeContext ctx;
     QCBOREncode_Init(&ctx, buf);
     QCBOREncode_OpenMap(&ctx);
@@ -106,7 +106,7 @@ UsefulBufC qcbor_encode(UsefulBuf buf, BenchFlat_evercddl_record_pretty_s r) {
     }
 }
 
-// bool qcbor_decode(UsefulBufC buf, BenchFlat_evercddl_record_pretty_s *res) {
+// bool qcbor_decode(UsefulBufC buf, BenchFlat_vercdl_record_pretty_s *res) {
 //     QCBORError rc;
 //     QCBORDecodeContext ctx;
 //     QCBORDecode_Init(&ctx, buf, QCBOR_DECODE_MODE_NORMAL);
@@ -158,7 +158,7 @@ UsefulBufC qcbor_encode(UsefulBuf buf, BenchFlat_evercddl_record_pretty_s r) {
 // }
 
 
-bool qcbor_decode_spiffy(UsefulBufC buf, BenchFlat_evercddl_record_pretty_s *res) {
+bool qcbor_decode_spiffy(UsefulBufC buf, BenchFlat_vercdl_record_pretty_s *res) {
     QCBORError rc;
     QCBORDecodeContext ctx;
     QCBORDecode_Init(&ctx, buf, QCBOR_DECODE_MODE_NORMAL);
@@ -188,9 +188,9 @@ bool qcbor_decode_spiffy(UsefulBufC buf, BenchFlat_evercddl_record_pretty_s *res
 void bench_qcbor () {
     float f;
 
-    /* reuse evercddl struct, why not. */
+    /* reuse vercdl struct, why not. */
     uint8_t *buf = (uint8_t *) malloc(EXPECTED_SIZE);
-    BenchFlat_evercddl_record_pretty_s r, r2;
+    BenchFlat_vercdl_record_pretty_s r, r2;
     r.f1 = bigrand();
     r.f2 = bigrand();
     r.f3 = bigrand();
@@ -251,7 +251,7 @@ void bench_qcbor () {
     assert (r.f8 == r2.f8);
 }
 
-size_t tinycbor_encode(uint8_t *buf, size_t len, BenchFlat_evercddl_record_pretty_s r) {
+size_t tinycbor_encode(uint8_t *buf, size_t len, BenchFlat_vercdl_record_pretty_s r) {
     CborEncoder enc;
     cbor_encoder_init(&enc, buf, len, 0);
     cbor_encoder_create_map(&enc, &enc, 8);
@@ -272,7 +272,7 @@ size_t tinycbor_encode(uint8_t *buf, size_t len, BenchFlat_evercddl_record_prett
     return len2;
 }
 
-bool tinycbor_decode(uint8_t *buf, size_t len, BenchFlat_evercddl_record_pretty_s *r) {
+bool tinycbor_decode(uint8_t *buf, size_t len, BenchFlat_vercdl_record_pretty_s *r) {
     CborParser p;
     CborValue vmap, v;
     cbor_parser_init(buf, len, 0, &p, &vmap);
@@ -291,9 +291,9 @@ bool tinycbor_decode(uint8_t *buf, size_t len, BenchFlat_evercddl_record_pretty_
 void bench_tinycbor () {
     float f;
 
-    /* reuse evercddl struct, why not. */
+    /* reuse vercdl struct, why not. */
     uint8_t *buf = (uint8_t *) malloc(EXPECTED_SIZE);
-    BenchFlat_evercddl_record_pretty_s r, r2;
+    BenchFlat_vercdl_record_pretty_s r, r2;
     r.f1 = bigrand();
     r.f2 = bigrand();
     r.f3 = bigrand();
@@ -340,7 +340,7 @@ int main()
 {
     printf("Testing\n");
 
-    bench_evercddl ();
+    bench_vercdl ();
     bench_qcbor ();
     bench_tinycbor ();
 

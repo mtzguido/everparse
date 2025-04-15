@@ -16,7 +16,7 @@ open CDDL.Spec.Base
 open CDDLTest.DPE.Common
 
 let struct_has_sig
-    (hres:spect_evercddl_signoutputargs_pretty) 
+    (hres:spect_vercdl_signoutputargs_pretty) 
     (sig :Seq.seq UInt8.t) =
   hres._x0 == Some (pretty_bytes sig) /\
   hres._x1 == None
@@ -24,22 +24,22 @@ let struct_has_sig
 ghost
 fn fold_sign_output_args (x:_) (w:erased _)
 requires
-  rel_pair (rel_option rel_evercddl_bytes) (rel_option rel_evercddl_bytes)
+  rel_pair (rel_option rel_vercdl_bytes) (rel_option rel_vercdl_bytes)
           x w
 ensures 
-  rel_evercddl_signoutputargs
-    (evercddl_signoutputargs_pretty_right x)
-    (spect_evercddl_signoutputargs_pretty_right w)
+  rel_vercdl_signoutputargs
+    (vercdl_signoutputargs_pretty_right x)
+    (spect_vercdl_signoutputargs_pretty_right w)
 {
-  rewrite (rel_pair (rel_option rel_evercddl_bytes) (rel_option rel_evercddl_bytes)
+  rewrite (rel_pair (rel_option rel_vercdl_bytes) (rel_option rel_vercdl_bytes)
                   x w)
-  as (rel_evercddl_signoutputargs 
-             (evercddl_signoutputargs_pretty_right x)
-             (spect_evercddl_signoutputargs_pretty_right w));
+  as (rel_vercdl_signoutputargs 
+             (vercdl_signoutputargs_pretty_right x)
+             (spect_vercdl_signoutputargs_pretty_right w));
 }
 
 let res_has_sig
-    (res:evercddl_signoutputargs_pretty)
+    (res:vercdl_signoutputargs_pretty)
     (sig:Slice.slice UInt8.t) p =
   of_bytes_option #p res.intkey1 (Some sig) /\
   of_bytes_option #1.0R res.intkey2 None
@@ -52,16 +52,16 @@ requires
 returns res:_
 ensures
   exists* hres. 
-    rel_evercddl_signoutputargs res hres **
+    rel_vercdl_signoutputargs res hres **
     pure (struct_has_sig hres s /\
           res_has_sig res sign p)
 {
-  let pk = mk_evercddl_bytes_pretty sign;
-  mk_evercddl_bytes_pretty_none ();
-  mk_rel_pair (rel_option rel_evercddl_bytes)
-              (rel_option rel_evercddl_bytes) _ None;
+  let pk = mk_vercdl_bytes_pretty sign;
+  mk_vercdl_bytes_pretty_none ();
+  mk_rel_pair (rel_option rel_vercdl_bytes)
+              (rel_option rel_vercdl_bytes) _ None;
   fold_sign_output_args _ _;
-  with res hres. assert (rel_evercddl_signoutputargs res hres);
+  with res hres. assert (rel_vercdl_signoutputargs res hres);
   res
 }
  
@@ -69,7 +69,7 @@ let is_serialized_sign_output hres w =
   exists sz.
     impl_serialize_post (coerce_spec bundle_signoutputargs
                 .b_spec
-              spect_evercddl_signoutputargs_pretty
+              spect_vercdl_signoutputargs_pretty
               ())
           hres
           w
@@ -79,15 +79,15 @@ let is_serialized_sign_output hres w =
 ghost
 fn destruct_signoutputargs x hres sign p s
 requires
-    rel_evercddl_signoutputargs x hres **
+    rel_vercdl_signoutputargs x hres **
     pure (of_bytes_option #p x.intkey1 (Some sign) /\
           of_bytes_option #1.0R x.intkey2 None /\
           struct_has_sig hres s)
 ensures
     pts_to sign #p s
 {
-  rewrite (rel_evercddl_signoutputargs x hres) as
-          (rel_evercddl_bytes (Some?.v x.intkey1) (Some?.v hres._x0) **
+  rewrite (rel_vercdl_signoutputargs x hres) as
+          (rel_vercdl_bytes (Some?.v x.intkey1) (Some?.v hres._x0) **
            emp);
   let xx = extract_bytes_ghost (Some?.v x.intkey1) _;
   rewrite each xx as sign;

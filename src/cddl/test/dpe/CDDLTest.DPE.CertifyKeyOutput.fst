@@ -15,7 +15,7 @@ open CBOR.Spec.API.Type
 open CDDL.Spec.Base
 open CDDLTest.DPE.Common
 
-let struct_has_pubkey_and_cert (hres:spect_evercddl_certifykeyoutputargs_pretty) (pk cert:Seq.seq UInt8.t) =
+let struct_has_pubkey_and_cert (hres:spect_vercdl_certifykeyoutputargs_pretty) (pk cert:Seq.seq UInt8.t) =
   hres._x0 == Some (pretty_bytes pk) /\
   hres._x1 == Some (pretty_bytes cert) /\
   hres._x2 == None
@@ -23,23 +23,23 @@ let struct_has_pubkey_and_cert (hres:spect_evercddl_certifykeyoutputargs_pretty)
 ghost
 fn fold_certify_key_output_args (x:_) (w:erased _)
 requires
-  rel_pair (rel_pair (rel_option rel_evercddl_bytes) (rel_option rel_evercddl_bytes))
-           (rel_option rel_evercddl_bytes)
+  rel_pair (rel_pair (rel_option rel_vercdl_bytes) (rel_option rel_vercdl_bytes))
+           (rel_option rel_vercdl_bytes)
           x w
 ensures 
-  rel_evercddl_certifykeyoutputargs 
-    (evercddl_certifykeyoutputargs_pretty_right x)
-    (spect_evercddl_certifykeyoutputargs_pretty_right w)
+  rel_vercdl_certifykeyoutputargs 
+    (vercdl_certifykeyoutputargs_pretty_right x)
+    (spect_vercdl_certifykeyoutputargs_pretty_right w)
 {
-  rewrite (rel_pair (rel_pair (rel_option rel_evercddl_bytes) (rel_option rel_evercddl_bytes))
-                    (rel_option rel_evercddl_bytes)
+  rewrite (rel_pair (rel_pair (rel_option rel_vercdl_bytes) (rel_option rel_vercdl_bytes))
+                    (rel_option rel_vercdl_bytes)
                   x w)
-  as (rel_evercddl_certifykeyoutputargs 
-             (evercddl_certifykeyoutputargs_pretty_right x)
-             (spect_evercddl_certifykeyoutputargs_pretty_right w));
+  as (rel_vercdl_certifykeyoutputargs 
+             (vercdl_certifykeyoutputargs_pretty_right x)
+             (spect_vercdl_certifykeyoutputargs_pretty_right w));
 }
 
-let res_has_pk_and_cert (res:evercddl_certifykeyoutputargs_pretty) (pk cert:Slice.slice UInt8.t) p q =
+let res_has_pk_and_cert (res:vercdl_certifykeyoutputargs_pretty) (pk cert:Slice.slice UInt8.t) p q =
   of_bytes_option #p res.intkey1 (Some pk) /\
   of_bytes_option #q res.intkey2 (Some cert) /\
   of_bytes_option #q res.intkey3 None
@@ -54,17 +54,17 @@ requires
 returns res:_
 ensures
   exists* hres. 
-    rel_evercddl_certifykeyoutputargs res hres **
+    rel_vercdl_certifykeyoutputargs res hres **
     pure (struct_has_pubkey_and_cert hres pk c /\ 
           res_has_pk_and_cert res pubkey cert p q)
 {
-  let pk = mk_evercddl_bytes_pretty pubkey;
-  let cert = mk_evercddl_bytes_pretty cert;
-  mk_rel_pair (rel_option rel_evercddl_bytes) (rel_option rel_evercddl_bytes) pk cert;
-  mk_evercddl_bytes_pretty_none ();
-  mk_rel_pair (rel_pair (rel_option rel_evercddl_bytes) (rel_option rel_evercddl_bytes)) (rel_option rel_evercddl_bytes) _ None;
+  let pk = mk_vercdl_bytes_pretty pubkey;
+  let cert = mk_vercdl_bytes_pretty cert;
+  mk_rel_pair (rel_option rel_vercdl_bytes) (rel_option rel_vercdl_bytes) pk cert;
+  mk_vercdl_bytes_pretty_none ();
+  mk_rel_pair (rel_pair (rel_option rel_vercdl_bytes) (rel_option rel_vercdl_bytes)) (rel_option rel_vercdl_bytes) _ None;
   fold_certify_key_output_args _ _;
-  with res hres. assert (rel_evercddl_certifykeyoutputargs res hres);
+  with res hres. assert (rel_vercdl_certifykeyoutputargs res hres);
   res
 }
  
@@ -72,7 +72,7 @@ let is_serialized_certify_key_output hres w =
   exists sz.
     impl_serialize_post (coerce_spec bundle_certifykeyoutputargs
                 .b_spec
-              spect_evercddl_certifykeyoutputargs_pretty
+              spect_vercdl_certifykeyoutputargs_pretty
               ())
           hres
           w
@@ -82,7 +82,7 @@ let is_serialized_certify_key_output hres w =
 ghost
 fn destruct_certifykeyoutputargs x hres pubkey cert p q pk c
 requires
-    rel_evercddl_certifykeyoutputargs x hres **
+    rel_vercdl_certifykeyoutputargs x hres **
     pure (of_bytes_option #p x.intkey1 (Some pubkey) /\
           of_bytes_option #q x.intkey2 (Some cert) /\
           of_bytes_option #q x.intkey3 None /\
@@ -91,9 +91,9 @@ ensures
     pts_to pubkey #p pk **
     pts_to cert #q c
 {
-  rewrite (rel_evercddl_certifykeyoutputargs x hres) as
-          (rel_evercddl_bytes (Some?.v x.intkey1) (Some?.v hres._x0) **
-           rel_evercddl_bytes (Some?.v x.intkey2) (Some?.v hres._x1) **
+  rewrite (rel_vercdl_certifykeyoutputargs x hres) as
+          (rel_vercdl_bytes (Some?.v x.intkey1) (Some?.v hres._x0) **
+           rel_vercdl_bytes (Some?.v x.intkey2) (Some?.v hres._x1) **
            emp);
   let xx = extract_bytes_ghost (Some?.v x.intkey1) _;
   let yy = extract_bytes_ghost (Some?.v x.intkey2) _;

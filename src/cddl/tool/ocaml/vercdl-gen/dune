@@ -3,7 +3,7 @@
   (name Main)
   (public_name cddl.exe)
   (libraries
-    evercddl.lib
+    vercdl.lib
   )
  (modes native)
  (flags (:standard -w -8-9-11-26-27-33-39))

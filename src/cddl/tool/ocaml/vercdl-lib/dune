@@ -1,12 +1,15 @@
 (include_subdirs unqualified)
 (library
- (name evercddl_plugin)
- (public_name evercddl.plugin)
+ (name vercdl_lib)
+ (public_name vercdl.lib)
  (libraries
     fstar.pluginlib
-    evercddl.lib
+    ppxlib
  )
+ (modes native)
+ (preprocess (pps ppx_deriving.show))
  (flags (:standard -w -8-9-11-26-27-33-39))
  (wrapped false)
- (modes native)
 )
+
+(ocamllex CDDLLexer)

@@ -20,33 +20,33 @@ open CDDLTest.DPE.Common
 
 ghost
 fn unfold_rel_initialize_context_input_args
-    (x:evercddl_initialize_context_input_args_pretty)
-    (y:spect_evercddl_initialize_context_input_args_pretty)
-requires rel_evercddl_initialize_context_input_args x y
+    (x:vercdl_initialize_context_input_args_pretty)
+    (y:spect_vercdl_initialize_context_input_args_pretty)
+requires rel_vercdl_initialize_context_input_args x y
 ensures 
-  rel_pair (rel_pair (rel_pair (rel_option rel_evercddl_bool)
-                (rel_option rel_evercddl_bool))
-            (rel_option rel_evercddl_bytes))
+  rel_pair (rel_pair (rel_pair (rel_option rel_vercdl_bool)
+                (rel_option rel_vercdl_bool))
+            (rel_option rel_vercdl_bytes))
             tstr_any
-  (evercddl_initialize_context_input_args_pretty_left x)
-  (spect_evercddl_initialize_context_input_args_pretty_left y) **
+  (vercdl_initialize_context_input_args_pretty_left x)
+  (spect_vercdl_initialize_context_input_args_pretty_left y) **
   Trade.trade
-    (rel_pair (rel_pair (rel_pair (rel_option rel_evercddl_bool)
-                (rel_option rel_evercddl_bool))
-            (rel_option rel_evercddl_bytes))
+    (rel_pair (rel_pair (rel_pair (rel_option rel_vercdl_bool)
+                (rel_option rel_vercdl_bool))
+            (rel_option rel_vercdl_bytes))
             tstr_any
-      (evercddl_initialize_context_input_args_pretty_left x)
-      (spect_evercddl_initialize_context_input_args_pretty_left y))
-  (rel_evercddl_initialize_context_input_args x y)
+      (vercdl_initialize_context_input_args_pretty_left x)
+      (spect_vercdl_initialize_context_input_args_pretty_left y))
+  (rel_vercdl_initialize_context_input_args x y)
 {
   Trade.rewrite_with_trade
-    (rel_evercddl_initialize_context_input_args x y)
-    (rel_pair (rel_pair (rel_pair (rel_option rel_evercddl_bool)
-                (rel_option rel_evercddl_bool))
-            (rel_option rel_evercddl_bytes))
+    (rel_vercdl_initialize_context_input_args x y)
+    (rel_pair (rel_pair (rel_pair (rel_option rel_vercdl_bool)
+                (rel_option rel_vercdl_bool))
+            (rel_option rel_vercdl_bytes))
             tstr_any
-      (evercddl_initialize_context_input_args_pretty_left x)
-      (spect_evercddl_initialize_context_input_args_pretty_left y));
+      (vercdl_initialize_context_input_args_pretty_left x)
+      (spect_vercdl_initialize_context_input_args_pretty_left y));
 }
 
 
@@ -105,14 +105,14 @@ ensures
 }
 
 let is_uds_bytes (uds:Seq.seq UInt8.t) (w:Seq.seq UInt8.t) =
-  exists (wx:spect_evercddl_initialize_context_input_args_pretty) (wr:Seq.seq UInt8.t).
+  exists (wx:spect_vercdl_initialize_context_input_args_pretty) (wr:Seq.seq UInt8.t).
           validate_and_parse_postcond_some bundle_initialize_context_input_args.b_spec.parser
           w
           wx
           wr 
           /\
           wx._x2 ==
-          Some (spect_evercddl_bytes_pretty_right (spect_evercddl_bstr_pretty_right uds))
+          Some (spect_vercdl_bytes_pretty_right (spect_vercdl_bstr_pretty_right uds))
         
 let parsed_initialize_context_input 
     (s:Slice.slice UInt8.t) (#p:perm) (w:erased _)
@@ -151,15 +151,15 @@ ensures parsed_initialize_context_input s #p w x
       Trade.Util.assoc_hyp_r _ _ _ (pts_to s #p w);
       Trade.Util.elim_hyp_l _ _ (pts_to s #p w);
       Trade.Util.elim_hyp_l _ _ (pts_to s #p w);
-      rel_option_cases (rel_evercddl_bytes) _ _;
-      match proj_3_4 (evercddl_initialize_context_input_args_pretty_left x) {
+      rel_option_cases (rel_vercdl_bytes) _ _;
+      match proj_3_4 (vercdl_initialize_context_input_args_pretty_left x) {
         None -> {
           Trade.elim_trade _ _;
           fold (parsed_initialize_context_input s #p w None);
           None
         }
         Some _ -> {
-          let seed = destruct_rel_option (rel_evercddl_bytes) _ _;
+          let seed = destruct_rel_option (rel_vercdl_bytes) _ _;
           let seed = extract_bytes seed _;
           Trade.trade_compose _ _ (pts_to s #p w);
           Trade.trade_compose _ _ (pts_to s #p w);

@@ -1,8 +1,8 @@
 (lang dune 2.8)
-(name evercddl)
+(name vercdl)
 (generate_opam_files false)
 
 (package
-  (name evercddl)
+  (name vercdl)
   (synopsis "The SEParse CDDL parser generator")
 )

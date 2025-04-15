@@ -133,7 +133,7 @@ void bench_verify(EVP_PKEY *pkey) {
 //     out.elt = malloc(out.len);
 
 //     bstr signed_msg = sign1(pkey, empty_sig_headers(), empty_sig_headers(), aad, payload);
-//     COSE_Format_evercddl_COSE_Sign1_pretty c =
+//     COSE_Format_vercdl_COSE_Sign1_pretty c =
 //         COSE_Format_validate_and_parse_COSE_Sign1_Tagged(signed_msg).v.fst;
 
 //     clock_gettime(CLOCK_MONOTONIC, &start);
@@ -156,9 +156,9 @@ void bench_verify(EVP_PKEY *pkey) {
 //     out.elt = malloc(out.len);
 
 //     bstr signed_msg = sign1(pkey, empty_sig_headers(), empty_sig_headers(), aad, payload);
-//     COSE_Format_evercddl_COSE_Sign1_pretty c =
+//     COSE_Format_vercdl_COSE_Sign1_pretty c =
 //         COSE_Format_validate_and_parse_COSE_Sign1_Tagged(signed_msg).v.fst;
-//     COSE_Format_evercddl_Sig_structure_pretty sig_struct = {
+//     COSE_Format_vercdl_Sig_structure_pretty sig_struct = {
 //         .context = 1,
 //         .body_protected = c.protected,
 //         ._x0 = {
@@ -186,7 +186,7 @@ void bench_verify(EVP_PKEY *pkey) {
 //     unsigned nruns = 100000;
 //     struct timespec start, finish;
 
-//     COSE_Format_evercddl_Sig_structure_pretty sig_struct = {
+//     COSE_Format_vercdl_Sig_structure_pretty sig_struct = {
 //         .context = 1,
 //         .body_protected = {},
 //         ._x0 = {
@@ -216,7 +216,7 @@ void bench_verify(EVP_PKEY *pkey) {
 //     unsigned nruns = 100000;
 //     struct timespec start, finish;
 
-//     COSE_Format_evercddl_Sig_structure_pretty sig_struct = {
+//     COSE_Format_vercdl_Sig_structure_pretty sig_struct = {
 //         .context = 1,
 //         .body_protected = {},
 //         ._x0 = {

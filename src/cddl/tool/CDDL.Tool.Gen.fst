@@ -22,7 +22,7 @@ let mk_impltype_name (name: string) : string =
   "impltype_" ^ filter_name name
 
 let mk_parsertype_name (name: string) : string =
-  "evercddl_" ^ filter_name name
+  "vercdl_" ^ filter_name name
 
 let mk_parser_name (name: string) : string =
   "parse_" ^ filter_name name

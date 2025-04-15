@@ -28,13 +28,13 @@ ensures emp
   rel_pure_intro 42uL;
   rel_option_some_intro (rel_pure U64.t) 42uL 42uL;
   rel_pair_intro (rel_pure U64.t) 18uL 18uL (rel_option (rel_pure U64.t)) (Some 42uL) (Some 42uL);
-  let wi : evercddl_test1_pretty = Mkevercddl_test1_pretty0 (Mkevercddl_uint_pretty0 18uL) (Some (Mkevercddl_uint_pretty0 42uL));
-  let ws : Ghost.erased spect_evercddl_test1_pretty = Ghost.hide (Mkspect_evercddl_test1_pretty0 (Mkspect_evercddl_uint_pretty0 18uL) (Some (Mkspect_evercddl_uint_pretty0 42uL)));
+  let wi : vercdl_test1_pretty = Mkvercdl_test1_pretty0 (Mkvercdl_uint_pretty0 18uL) (Some (Mkvercdl_uint_pretty0 42uL));
+  let ws : Ghost.erased spect_vercdl_test1_pretty = Ghost.hide (Mkspect_vercdl_test1_pretty0 (Mkspect_vercdl_uint_pretty0 18uL) (Some (Mkspect_vercdl_uint_pretty0 42uL)));
   rewrite
     (rel_pair (rel_pure U64.t) (rel_option (rel_pure U64.t)) (18uL, Some 42uL) (18uL, Some 42uL))
-    as (rel_evercddl_test1 wi ws);
+    as (rel_vercdl_test1 wi ws);
   let _ = serialize_test1' wi out;
-  drop_ (rel_evercddl_test1 wi ws);
+  drop_ (rel_vercdl_test1 wi ws);
   S.to_array out;
   0l
 }
