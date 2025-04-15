@@ -2,7 +2,7 @@ all: FStar karamel pulse
 
 export ADMIT=1
 
-export EVERPARSE_OPT_PATH=$(realpath .)
+export SEPARSE_OPT_PATH=$(realpath .)
 
 include env.Makefile
 
