@@ -7,8 +7,8 @@ Section 2.2:
 
 Section 3.2:
 - the CBOR raw data type is defined in `src/cbor/spec/raw/CBOR.Spec.Raw.Base.fst`
-- the CBOR raw data parser and serializer specifications are defined in `src/cbor/spec/raw/separse/CBOR.Spec.Raw.EverParse.fst`
-- the CBOR raw data validator, jumper implementation, accessors, and the CBOR header value reader and writer, as well as the validator and jumper for the deterministic format, are defined in `src/cbor/pulse/raw/separse/CBOR.Pulse.Raw.EverParse.Format.fst`
+- the CBOR raw data parser and serializer specifications are defined in `src/cbor/spec/raw/separse/CBOR.Spec.Raw.SEParse.fst`
+- the CBOR raw data validator, jumper implementation, accessors, and the CBOR header value reader and writer, as well as the validator and jumper for the deterministic format, are defined in `src/cbor/pulse/raw/separse/CBOR.Pulse.Raw.SEParse.Format.fst`
 - the low-level datatype for CBOR raw data is defined in `src/cbor/pulse/raw/CBOR.Pulse.Raw.Type.fst`
 - the separation logic relation for CBOR raw data is defined in `src/cbor/pulse/raw/CBOR.Pulse.Raw.Match.fst`
 - the CBOR raw data serializer implementations are defined in `src/cbor/pulse/raw/separse/CBOR.Pulse.Raw.Format.Serialize.fst`

@@ -3,7 +3,6 @@ ifeq (,$(SEPARSE_SRC_PATH))
 endif
 
 ifeq (,$(KRML_HOME))
-  # assuming Everest layout
   KRML_HOME := $(realpath $(SEPARSE_SRC_PATH)/../../karamel)
   ifeq (,$(KRML_HOME))
     $(error "KRML_HOME must be defined and set to the root directory of the Karamel repository")
