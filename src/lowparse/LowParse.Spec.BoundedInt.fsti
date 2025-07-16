@@ -98,6 +98,7 @@ let log256'
   ))
 = [@inline_let]
   let _ = assert_norm (pow2 32 == 4294967296) in
+  let _ = assert_norm (pow2 24 == 16777216) in
   [@inline_let]
   let _ = assert (n < pow2 32) in
   [@inline_let]
